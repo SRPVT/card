@@ -1,7 +1,4 @@
-body {
-}
-
-a.avatar,
+.avatar,
 .badges,
 .badges .badges-right,
 .container,
@@ -37,12 +34,12 @@ a.avatar,
 }
 
 :root {
-  --primary-h-top: 0deg; /* Black color (top) */
-  --primary-s-top: 0%;
-  --primary-l-top: 0%;  /* Black color (top) */
-  --primary-h-bottom: 0deg; /* White color (bottom) */
-  --primary-s-bottom: 0%;
-  --primary-l-bottom: 100%; /* White color (bottom) */
+  --primary-h-top: 206deg;
+  --primary-s-top: 41%;
+  --primary-l-top: 88%;
+  --primary-h-bottom: 212deg;
+  --primary-s-bottom: 58%;
+  --primary-l-bottom: 44%;
   --text-color: black;
   --box-shadow-color: rgba(0, 0, 0, 0.1)
 }
@@ -609,7 +606,7 @@ a:hover.tooltip::after {
 }
 
 .rosepink {
-  color: #ecdcd4
+  color: #000000
 }
 
 .green {
@@ -617,7 +614,7 @@ a:hover.tooltip::after {
 }
 
 .blue {
-  color: #ffffff
+  color: #00aff4
 }
 
 .chat-container {
