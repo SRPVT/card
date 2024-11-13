@@ -377,8 +377,7 @@ a:hover.tooltip::after {
 .card,
 .roles-body .rol {
   --primary-s-top: 45%;
-  --primary-s-bottom: 45%;
-  background: linear-gradient(to bottom, hsl(0deg, 0%, 0%), hsl(0deg, 0%, 100%)); /* This creates the black to white gradient */
+  --primary-s-bottom: 45%
 }
 
 .badges img {
@@ -400,12 +399,98 @@ a:hover.tooltip::after {
   margin: 80px 16px 16px;
   --primary-l-top: 94%;
   --primary-l-bottom: 94%;
-  width: 100%;
-  background: linear-gradient(to bottom, hsl(0deg, 0%, 0%), hsl(0deg, 0%, 100%)); /* Half black, half white gradient */
-  border-radius: 10px;
-  padding: 16px;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px
+}
+
+.name-box {
+  flex-direction: column;
+  margin: 20px 20px 0;
+  padding-left: 5px
+}
+
+.display-name {
+  font-size: 20px;
+  font-weight: bolder
+}
+
+.username {
+  font-weight: 600;
+  border-radius: 50%;
+  font-size: .9em
+}
+
+.platform,
+.roles-body .rol {
+  border-radius: 4px
+}
+
+.about-me,
+.body .title-body,
+.pronouns {
+  font-size: 14px;
+  color: var(--text-color)
+}
+
+.pronouns {
+  font-weight: 400;
+  margin: 3px 0 0
+}
+
+.custom-status {
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  padding: 0 0 10px
+}
+
+.custom-status img {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: cover;
+  image-rendering: pixelated
+}
+
+.custom-status-text {
+  margin: 0;
+  padding: 0;
+  font-weight: 400
+}
+
+.about-me {
+  overflow-wrap: break-word;
+  line-height: 20px;
+  font-weight: 500
+}
+
+.flag {
+  display: inline-block;
+  width: 22px;
+  height: 14px
+}
+
+.flag img {
+  width: 20px;
+  height: 20px
+}
+
+.divider {
+  height: 0;
+  margin-top: 5px;
+  margin-bottom: 0
+}
+
+.body {
+  padding: 0 20px 16px
+}
+
+.body .title-body {
+  font-weight: 700;
+  line-height: 16px;
+  margin-bottom: 8px
+}
+
+.body .roles-body {
+  margin-bottom: 10px
 }
 
 .content {
@@ -416,23 +501,62 @@ a:hover.tooltip::after {
   scroll-snap-type: y mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 5px;
+  padding: 5px
 }
 
 .about-section {
   margin-bottom: 16px;
-  margin-top: 5px;
+  margin-top: 5px
 }
 
 .roles-body {
-  display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   margin: 1px;
+  flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+
+.platform,
+.roles-body .rol,
+.socials {
+  display: -webkit-box;
+  display: -ms-flexbox
+}
+
+.roles-body .rol {
+  background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)));
+  --primary-l-top: 96%;
+  --primary-l-bottom: 96%;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 4px 4px 0;
+  padding: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 22px;
+  font-size: 12px;
+  font-weight: 500
+}
+
+.roles-body .rol span {
+  color: var(--text-color);
+  margin-left: 4px;
+  margin-right: 4px
+}
+
+.social-divider {
+  margin-bottom: 0
 }
 
 .socials {
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between
 }
 
 .platform {
@@ -440,22 +564,60 @@ a:hover.tooltip::after {
   display: flex;
   margin-bottom: 20px;
   padding: 12px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  text-decoration: none
+}
+
+.platform-username {
+  color: var(--text-color);
+  font-size: .9em;
+  font-weight: 600;
+  margin-left: 10px;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1
+}
+
+.platform::hover {
+  text-decoration: none
+}
+
+.platform-icon {
+  width: 24px;
+  height: 24px
 }
 
 .connect {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 20px;
   height: 20px;
-  filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%);
+  -webkit-filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%);
+  filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%)
 }
 
 .connect:hover {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%);
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%)
 }
 
-.social-divider {
-  margin-bottom: 0;
+.softpink {
+  color: #f8bbd0
+}
+
+.rosepink {
+  color: #ecdcd4
+}
+
+.green {
+  color: #1ed760
+}
+
+.blue {
+  color: #ffffff
 }
 
 .chat-container {
@@ -465,7 +627,7 @@ a:hover.tooltip::after {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  display: none !important;
+  display: none !important
 }
 
 #message-input {
@@ -474,16 +636,7 @@ a:hover.tooltip::after {
   border: none;
   outline: 0;
   font-size: 16px;
-  font-weight: 500;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  font-weight: 500
 }
 
 @media (width <=640px) {
@@ -492,60 +645,70 @@ a:hover.tooltip::after {
     margin: -2px;
     filter: blur(2px);
     background-color: rgba(0, 0, 0, .5);
-    background-blend-mode: darken;
+    background-blend-mode: darken
   }
 
   .profile {
-    width: 300px;
+    width: 300px
   }
 
   .profile .banner {
-    height: 100px;
+    height: 100px
   }
 
   .badges {
     top: 120px;
     right: 16px;
     left: unset;
-    flex-direction: row-reverse;
+    flex-direction: row-reverse
   }
 
   .avatar {
-    top: 55px;
+    top: 55px
   }
 
   .avatar #avatar-image {
     width: 86px;
-    height: 86px;
+    height: 86px
   }
 
   .avatar-decoration {
     width: 130px;
-    height: 130px;
+    height: 130px
   }
 
   .name-box {
     width: 236px;
-    margin: 16px 16px 10px;
+    margin: 16px 16px 10px
   }
 
   .body {
-    padding: 0 16px 16px;
+    padding: 0 16px 16px
   }
 
   .card {
-    margin: 70px 16px 16px;
+    margin: 70px 16px 16px
   }
 
   .socials {
-    display: block;
+    display: block
   }
 
   .platform {
-    width: 196px;
+    width: 196px
   }
 
   .chat-container {
-    width: 200px;
+    width: 200px
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
   }
 }
