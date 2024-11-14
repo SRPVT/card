@@ -256,3 +256,26 @@
 		<script defer src="./scripts/sub.js"></script>
 	</body>
 </html>
+<!doctype html>
+
+
+    
+    
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            alert('Inspecting is not allowed.');
+        });
+
+        // Optionally, detect F12 key or Ctrl+Shift+I
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                alert('Inspecting is not allowed.');
+                event.preventDefault();
+            }
+        });
+    </script>
+
+
+
+</!doctype>
