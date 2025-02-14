@@ -122,7 +122,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("public/749807.png");
+  background-image: url("../public/bg.webp");
   background-repeat: no-repeat;
   z-index: -1;
   filter: blur(5px);
@@ -606,7 +606,7 @@ a:hover.tooltip::after {
 }
 
 .rosepink {
-  color: #000000
+  color: #ecdcd4
 }
 
 .green {
@@ -638,7 +638,7 @@ a:hover.tooltip::after {
 
 @media (width <=640px) {
   .container::before {
-    background-image: url("public/b48bc0deeb332f1f314d5f5986e68549.jpg");
+    background-image: url("../public/bg_mobile.webp");
     margin: -2px;
     filter: blur(2px);
     background-color: rgba(0, 0, 0, .5);
