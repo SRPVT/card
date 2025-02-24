@@ -638,7 +638,7 @@ a:hover.tooltip::after {
 
 @media (width <=640px) {
   .container::before {
-    background-image: url("../public/bg_mobile.webp");
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAk2WIuw3O-yngsxTai0-QylechmmTQMmDsEaFxHLOcjBN4r_14pWv9lPbj1mbGzNWN6Vl0fXgN46Wxz8LzbWFaNsZH5_r7TTY7KX0_5VVbHJlYei5byTYEBLPN3mGnsQxPzKRcVCJqVO3yjy5mIFFRGn4LVPL56Hpin4TrPvffERsaFLIa6tkWAjoZsQ/s320/for%20mobile0.jpg");
     margin: -2px;
     filter: blur(2px);
     background-color: rgba(0, 0, 0, .5);
