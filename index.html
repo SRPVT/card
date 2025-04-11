@@ -1,172 +1,372 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="mizu.its.moe | mizu.is-a.dev" />
-	<meta property="og:description" content="mizu.its.moe | mizu.is-a.dev" />
-	<meta property="og:title" content="Mizu" />
-	<meta property="og:image" content="https://cdn.discordapp.com/attachments/953841823338618900/1193970050365919292/tumblr_5d43d3aee5d6a0f535c75ebd4654a423_0a23ad45_1280.gif" />
-	<meta property="og:type" content="website" />
-	<link rel="canonical" href="https://miyagawamizu.github.io/" />
-	<meta property="og:site_name" content="@MiyagawaMizu" />
-	<meta name="keywords" content="miyagawamizu,mizu, mizumiyagawa, miyagawa, miyagawa mizu" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="language" content="English" />
-	<meta name="author" content="MiyagawaMizu" />
-	<meta name="view-transition" content="same-origin" />
-	<link rel="icon" href="public/channels4_profile (2) (1).jpg" />
-	<link rel="stylesheet" href="./styles/style.css" />
-	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" crossorigin />
-	<title>BMR DSC</title>
-	<style>
-		.profile-effect {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-image: url('https://cdn.discordapp.com/assets/profile_effects/effects/2025-04-05/f_in_chat_black/intro.png');
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;
-			z-index: 0;
-			opacity: 0.15;
-			pointer-events: none;
-			border-radius: 12px;
-		}
-		.profile {
-			position: relative;
-			overflow: hidden;
-		}
-	</style>
-</head>
-<body oncontextmenu="return false;">
-	<div class="container">
-		<div class="profile-border box-color">
-			<div class="profile box-color">
-				<!-- Profile Effect -->
-				<div class="profile-effect"></div>
+<span class="cubesWrapper">
+    <span class="cube"></span>
+    <span class="cube"></span>
+</span>
 
-				<div class="banner">
-					<img loading="lazy" id="banner-image" src="public/bmr anime_1006.png" alt="" />
-				</div>
-				<div class="main-header">
-					<div class="image">
-						<div class="avatar">
-							<img loading="lazy" class="box-color" id="avatar-image" alt="" aria-hidden="true" src="public/channels4_profile (2) (1).jpg" />
-							<img loading="lazy" class="avatar-decoration" src="public/angry (1).png" alt="" />
-							<div class="status box-color">
-								<img id="status-image" src="./public/status/offline.svg" alt="" />
+<style>
+    body {
+        background: #36393f;
+    }
+
+    .cubesWrapper {
+        left: 48vw;
+        top: 45vh;
+        position: relative;
+        display: inline-block;
+        width: 52px;
+        height: 52px;
+        contain: paint;
+        opacity: 1;
+        transition: opacity 2s ease-out; /* Fade out effect */
+    }
+
+    .cube {
+        background-color: #7289da;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-animation: cubeSpinner 1.8s ease-in-out infinite;
+        animation: cubeSpinner 1.8s ease-in-out infinite;
+    }
+
+    .cube:last-child {
+        -webkit-animation-delay: -.9s;
+        animation-delay: -.9s;
+    }
+
+    @-webkit-keyframes cubeSpinner {
+        25% {
+            -webkit-transform: translateX(22px) rotate(-90deg) scale(.5);
+            transform: translateX(22px) rotate(-90deg) scale(.5);
+        }
+
+        50% {
+            -webkit-transform: translateX(22px) translateY(22px) rotate(-180deg);
+            transform: translateX(22px) translateY(22px) rotate(-180deg);
+        }
+
+        75% {
+            -webkit-transform: translateX(0) translateY(22px) rotate(-270deg) scale(.5);
+            transform: translateX(0) translateY(22px) rotate(-270deg) scale(.5);
+        }
+
+        to {
+            -webkit-transform: rotate(-1turn);
+            transform: rotate(-1turn);
+        }
+    }
+
+    @keyframes cubeSpinner {
+        25% {
+            -webkit-transform: translateX(22px) rotate(-90deg) scale(.5);
+            transform: translateX(22px) rotate(-90deg) scale(.5);
+        }
+
+        50% {
+            -webkit-transform: translateX(22px) translateY(22px) rotate(-180deg);
+            transform: translateX(22px) translateY(22px) rotate(-180deg);
+        }
+
+        75% {
+            -webkit-transform: translateX(0) translateY(22px) rotate(-270deg) scale(.5);
+            transform: translateX(0) translateY(22px) rotate(-270deg) scale(.5);
+        }
+
+        to {
+            -webkit-transform: rotate(-1turn);
+            transform: rotate(-1turn);
+        }
+    }
+</style>
+
+<script>
+    // Timeout function to fade out the cubesWrapper after 5 seconds
+    setTimeout(function() {
+        const cubesWrapper = document.querySelector('.cubesWrapper');
+        if (cubesWrapper) {
+            cubesWrapper.style.opacity = '0';  // Start fade-out
+        }
+    }, 5000); // 5000ms = 5 seconds
+</script>
+
+<!DOCTYPE >
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Dscbmr.is-a.dev | dscbmr.is-a.dev" />
+		<meta property="og:description" content="dscbmr.is-a.dev| dscbmr.is-a.dev" />
+		<meta property="og:title" content="Bmr" />
+		<meta property="og:image" content="" />
+		<meta property="og:type" content="website" />
+		<link rel="canonical" href="https://srpvt.github.io/" />
+		<meta property="og:site_name" content="@bmr.tt69" />
+		<meta
+			name="keywords"
+			content="Bmr,skibidi,sigma,ohio" />
+		<meta
+			property="og:image"
+			content="public/NEW PFP (1).jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="language" content="English" />
+		<meta name="author" content="bmr" />
+		<meta name="view-transition" content="same-origin" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap"
+			rel="stylesheet" />
+		<link rel="icon" href="public/niger0.jpg" />
+		<link rel="stylesheet" href="./styles/style.css" />
+		<link
+			href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+			rel="stylesheet"
+			crossorigin />
+		<title>BMR</title>
+	</head>
+	<body oncontextmenu="return true;">
+		<div class="container">
+			<div class="profile-border box-color">
+				<div class="profile box-color">
+					<div class="banner">
+						<img
+							loading="lazy"
+							id="banner-image"
+							src="public/discord bannerf0.jpg"
+							alt="" />
+					</div>
+					<div class="main-header">
+						<div class="image">
+							<div class="avatar">
+								<img
+									loading="lazy"
+									class="box-color"
+									id="avatar-image"
+									alt=""
+									aria-hidden="true"
+									src="public/niger0.jpg" />
+								<img
+									loading="lazy"
+									class="avatar-decoration"
+									src="https://cdn.jsdelivr.net/gh/itspi3141/discord-fake-avatar-decorations@main/public/decorations/dismay_purple.png"
+									alt="" />
+								<div class="status box-color tooltip">
+									<img
+										id="status-image"
+										src="./public/status/offline.svg"
+										alt="" />
+								</div>
+							</div>
+							<!-- </button> -->
+						</div>
+						<div class="badges box-color" id="badges">
+							<div class="badges-right">
+								<a class="tooltip" aria-label="HypeSquad Brilliance">
+									<img alt=" " src="./public/badges/hypesquad-brilliance.svg"
+								/></a>
+								<a class="tooltip" aria-label="Active Developer">
+									<img alt=" " src="./public/badges/active-developer.svg"
+								/></a>
+								
+								<a
+									class="tooltip"
+									aria-label="Completed a Quest">
+									<img alt=" " src="public/badges/quest completion badge.png"
+								/></a>
+							</div>
+							<div class="badges-left"></div>
+							<!-- badges list-->
+							<!-- -->
+						</div>
+					</div>
+					<div class="card box-color">
+						<div class="name-box">
+							<span class="display-name">R</span>
+							<button
+								class="id username"
+								id="textToCopy"
+								aria-label="Click to copy!"
+								onclick="copyToClipboard()"></button>
+							<span class="pronouns"></span>
+							<div class="custom-status">
+								<img id="custom-status-emoji" />
+								<p class="custom-status-text"></p>
 							</div>
 						</div>
-					</div>
-					<div class="badges box-color" id="badges">
-						<div class="badges-right">
-							<a class="tooltip" aria-label="HypeSquad Brilliance">
-								<img alt=" " src="./public/badges/hypesquad-brilliance.svg" />
-							</a>
-							<a class="tooltip" id="active-developer" aria-label="Active Developer">
-								<img alt=" " src="./public/badges/active-developer.svg" />
-							</a>
-							<a class="tooltip" aria-label="Sorry i'm poor">
-								<img alt=" " src="./public/badges/nitro.svg" />
-							</a>
-							<a class="tooltip" aria-label="Originally known as Bmr.tt1">
-								<img alt=" " src="./public/badges/legacy-username.svg" />
-							</a>
-						</div>
-						<div class="badges-left"></div>
-					</div>
-				</div>
-				<div class="card box-color">
-					<div class="name-box">
-						<span class="display-name">འ</span>
-						<span class="username">bmr.tt69</span>
-						<span class="pronouns">Fascinating</span>
-						<div class="custom-status">
-							<img id="custom-status-emoji" />
-							<p class="custom-status-text"></p>
-						</div>
-					</div>
-					<div class="body">
-						<div class="content">
-							<div class="about-section">
-								<div class="title-body">ABOUT ME</div>
-								<span class="about-me">
-									human
-									<div class="flag">
-										<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZRY0JvuywVCuk6VJzbzXy6XQjRNzlAjErKUiLtf2QHCx2uJO36PUWmy03R8PByhIW4j_-NXBaH3X28phIEMKFrLOf-oIuXW0pXUqqCAep-xCLcdYwAU_g2qys6hhZtcGi1kVO5Ul6EbxR2k63brVHXCn3oVQjv0kMeBXFrvC8ax0sS-qGMy84CiilXv8h/s320/sus-cat-2-suspicious-cat.gif" />
+						<div class="body">
+							<div class="content">
+								<div class="about-section">
+									<div class="title-body">ABOUT ME</div>
+									<!-- text -->
+									<span class="about-me"
+										>human
+										<div class="flag">
+											<img
+												src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZRY0JvuywVCuk6VJzbzXy6XQjRNzlAjErKUiLtf2QHCx2uJO36PUWmy03R8PByhIW4j_-NXBaH3X28phIEMKFrLOf-oIuXW0pXUqqCAep-xCLcdYwAU_g2qys6hhZtcGi1kVO5Ul6EbxR2k63brVHXCn3oVQjv0kMeBXFrvC8ax0sS-qGMy84CiilXv8h/s320/sus-cat-2-suspicious-cat.gif" />
+										</div>
+										There's nothing much about me
+										
+								</div>
+										
+								<div class="title-body">ROLES</div>
+								<div class="roles-body">
+									<!-- roles list -->
+									<div class="rol rosepink">
+										<i class="fas fa-circle"></i>
+										<span>SKIBIDI</span>
 									</div>
-									There's nothing much about me
-								</span>
-							</div>
-							<div class="title-body">ROLES</div>
-							<div class="roles-body">
-								<div class="rol rosepink">
-									<i class="fas fa-circle"></i>
-									<span>SKIBIDI</span>
+									<div class="rol softpink">
+										<i class="fas fa-circle"></i>
+										<span>Weeb Developer</span>
+									</div>
+									<div class="rol green">
+										<i class="fas fa-circle"></i>
+										<span>EDITOR</span>
+									</div>
+									<div class="rol blue">
+										<i class="fas fa-circle"></i>
+										<span>MECH Student</span>
+									</div>
+									<!-- -->
 								</div>
-								<div class="rol softpink">
-									<i class="fas fa-circle"></i>
-									<span>Weeb Developer</span>
+								<div class="divider social-divider"></div>
+								<div class="title-body">CONNECTIONS</div>
+
+								<div class="socials">
+									<!-- social list -->
+									<div class="column">
+										<a
+											class="platform"
+											href="https://sussyrayan.is-a.dev/"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbXDvNdq-lNCnNZmzxvxYam0b19UlAUGa_Kb1HOTsjua1HJNSLPrAZIGConm46JYgN4xXH03Zgp52KYJbidC8wPU1GV7-U7dbmHENFvAZcdQHO04cvoSMGFgd3IoSD4fde4tMoecdHxdlnuYyjIAylVd9DCfgIeKmQxKc561IbbJ5jFI7iuVfTi0Rhfa2J/s980/stylish-capital-letter-logo-free-photo%20%284%29.jpg" />
+											<div class="text-base platform-username">
+												Portfolio
+											</div>
+											<div>
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+										<a
+											class="platform"
+											href="https://youtube.com/@bmreditz-1?si=1kdm4IKXqWVh-__j"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="public/platforms/youtube.svg" />
+											<div class="text-base platform-username">Youtube</div>
+											<div
+												href="https://youtube.com/@bmreditz-1?si=1kdm4IKXqWVh-__j"
+												rel="noreferrer noopener"
+												target="_blank">
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+									</div>
+									<div class="column">
+										<a
+											class="platform"
+											href="https://www.instagram.com/bmr.tt1/"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj08HbWN9tHo_48GCV8q09VcZE5yHN3DlKWaS9d4Rut02CVxpu1SZCziHa-JJfKT47-FVboDKS1ph4Ms2Ldtg5eWmeU8l_9ZyDykdH_7x6pP9A-i6pXF_h3RuQia71dICGWn-2KYSPVw3yMKPWJCWnA7BrGa0SSBTUU8vrUWV-emYWrYeqzmJ0nuj2IroVV/s360/pngtree-instagram-icon-png-image_6315974.png" />
+											<div class="text-base platform-username">
+												bmr.tt1
+											</div>
+											<div>
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+										<a
+											class="platform"
+											href="https://discord.gg/cmSmTqCEyn"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="./public/platforms/discord.svg" />
+											<div class="text-base platform-username">
+												Discord server
+											</div>
+											<div class="">
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+									</div>
+									<!-- -->
 								</div>
-								<div class="rol green">
-									<i class="fas fa-circle"></i>
-									<span>EDITOR</span>
+								<div class="chat-container">
+									<input
+										type="text"
+										id="message-input"
+										placeholder="Message @BMR.EZ" />
 								</div>
-								<div class="rol blue">
-									<i class="fas fa-circle"></i>
-									<span>MECH Student</span>
-								</div>
-							</div>
-							<div class="divider social-divider"></div>
-							<div class="title-body">CONNECTIONS</div>
-							<div class="socials">
-								<div class="column">
-									<a class="platform" href="https://www.rayxstdioz.fun" rel="noreferrer noopener" target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbXDvNdq-lNCnNZmzxvxYam0b19UlAUGa_Kb1HOTsjua1HJNSLPrAZIGConm46JYgN4xXH03Zgp52KYJbidC8wPU1GV7-U7dbmHENFvAZcdQHO04cvoSMGFgd3IoSD4fde4tMoecdHxdlnuYyjIAylVd9DCfgIeKmQxKc561IbbJ5jFI7iuVfTi0Rhfa2J/s980/stylish-capital-letter-logo-free-photo%20%284%29.jpg" />
-										<div class="text-base platform-username">Rayxstdioz.fun</div>
-										<div>
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg" class="connect" />
-										</div>
-									</a>
-									<a class="platform" href="https://youtube.com/@bmr69?si=xa813aGBBuqkUXq2" rel="noreferrer noopener" target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true" src="public/platforms/youtube.svg" />
-										<div class="text-base platform-username">Youtube</div>
-										<div>
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg" class="connect" />
-										</div>
-									</a>
-								</div>
-								<div class="column">
-									<a class="platform" href="https://www.instagram.com/bmr.tt1/" rel="noreferrer noopener" target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj08HbWN9tHo_48GCV8q09VcZE5yHN3DlKWaS9d4Rut02CVxpu1SZCziHa-JJfKT47-FVboDKS1ph4Ms2Ldtg5eWmeU8l_9ZyDykdH_7x6pP9A-i6pXF_h3RuQia71dICGWn-2KYSPVw3yMKPWJCWnA7BrGa0SSBTUU8vrUWV-emYWrYeqzmJ0nuj2IroVV/s360/pngtree-instagram-icon-png-image_6315974.png" />
-										<div class="text-base platform-username">bmr.tt1</div>
-										<div>
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg" class="connect" />
-										</div>
-									</a>
-									<a class="platform" href="https://discord.gg/FpWq76bMGA" rel="noreferrer noopener" target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true" src="./public/platforms/discord.svg" />
-										<div class="text-base platform-username">Contact me</div>
-										<div>
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg" class="connect" />
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="chat-container">
-								<input type="text" id="message-input" placeholder="Message @bmr" />
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<script src="./scripts/scriptstatic.js"></script>
-	<script src="./scripts/sub.js"></script>
-</body>
+		<script async src="./scripts/script.js"></script>
+		<script defer src="./scripts/sub.js"></script>
+	</body>
 </html>
+<!doctype html>
+
+
+    
+    
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            alert('Inspecting is not allowed.');
+        });
+
+        // Optionally, detect F12 key or Ctrl+Shift+I
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                alert('Inspecting is not allowed.');
+                event.preventDefault();
+            }
+        });
+    </script>
+
+
+
+</!doctype>
