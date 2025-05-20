@@ -34,19 +34,14 @@
 }
 
 :root {
-  --primary-h-top: 0deg;
-  --primary-s-top: 0%;
-  --primary-l-top: 95%; /* Light gray/almost white for top of gradients */
-  --primary-h-bottom: 0deg;
-  --primary-s-bottom: 0%;
-  --primary-l-bottom: 85%; /* Slightly darker gray for bottom of gradients */
-  --text-color: #000; /* Black text for readability */
-  --box-shadow-color: rgba(0, 0, 0, 0.1);
-  --card-background: #ffffff; /* White background for the card */
-  --card-border: #e0e0e0; /* Light gray for card borders */
-  --dark-text: #333; /* Darker gray for general text */
-  --medium-text: #555; /* Medium gray for secondary text */
-  --light-bg: #f0f0f0; /* Light gray for subtle backgrounds */
+  --primary-h-top: 206deg;
+  --primary-s-top: 41%;
+  --primary-l-top: 88%;
+  --primary-h-bottom: 212deg;
+  --primary-s-bottom: 58%;
+  --primary-l-bottom: 44%;
+  --text-color: rgb(255, 255, 255);
+  --box-shadow-color: rgba(0, 0, 0, 0.1)
 }
 
 .badges,
@@ -68,7 +63,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: hsl(var(--primary-h-top), 45%, 50%, .1);
   border-radius: 10px
 }
 
@@ -77,8 +72,7 @@
   position: relative;
   border-radius: 8px;
   margin: 0 auto;
-  display: flex;
-  background-color: var(--card-background); /* Card background */
+  display: flex
 }
 
 .id,
@@ -96,7 +90,7 @@ img {
 }
 
 .about-section a {
-  color: var(--dark-text); /* Link color */
+  color: #000000;
   text-decoration: none
 }
 
@@ -131,9 +125,9 @@ body {
   background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZoQ_cYmmOe98lZFSI2sj4UYX0y-RyqHcw_gdp6oXKrUP9VumpyiRPgnAvPzuLC99uWmTVWnfLR_M5e3PME1QVX3NJ0rWBfnHiF5gmqwMYZxfH6XfrZyc10hh7bJQ1XQY5vNVUEALJ6aJtSFXm20kv1KTdb4-1x42ojYEwVhrz76hZatppELzZaRuNXb8/s320/wp3770433-red-dead-redemption-2-4k-wallpapers.jpg");
   background-repeat: no-repeat;
   z-index: -1;
-  filter: grayscale(100%) blur(5px); /* Grayscale and blur for background */
-  background-color: rgba(0, 0, 0, .7); /* Darken background */
-  background-blend-mode: multiply;
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, .5);
+  background-blend-mode: darken;
   background-size: cover;
   background-position: center
 }
@@ -154,10 +148,10 @@ body {
 .profile {
   z-index: 1;
   flex-direction: column;
-  --primary-s-top: 0%;
-  --primary-l-top: 100%; /* White for profile gradients */
-  --primary-s-bottom: 0%;
-  --primary-l-bottom: 90%; /* Slightly darker white */
+  --primary-s-top: 43%;
+  --primary-l-top: 99%;
+  --primary-s-bottom: 47%;
+  --primary-l-bottom: 78%;
   width: 600px;
   max-height: calc(100vh - 100px)
 }
@@ -170,21 +164,19 @@ body {
 
 .avatar,
 .avatar #avatar-image {
-  --primary-s-top: 0%;
-  --primary-l-top: 98%;
-  --primary-s-bottom: 0%;
-  --primary-l-bottom: 97%
+  --primary-s-top: 42%;
+  --primary-l-top: 95%;
+  --primary-s-bottom: 44%;
+  --primary-l-bottom: 94%
 }
 
 .profile .banner {
-  height: 190px;
-  filter: grayscale(100%); /* Apply grayscale to the banner image */
+  height: 190px
 }
 
 .badges .badges-left,
 .badges img {
-  height: 26px;
-  filter: grayscale(100%); /* Apply grayscale to badge images */
+  height: 26px
 }
 
 .profile .banner img {
@@ -201,10 +193,10 @@ body {
 
 .badges,
 .status {
-  --primary-s-top: 0%;
-  --primary-l-top: 99%;
-  --primary-s-bottom: 0%;
-  --primary-l-bottom: 99%
+  --primary-s-top: 41%;
+  --primary-l-top: 97%;
+  --primary-s-bottom: 41%;
+  --primary-l-bottom: 97%
 }
 
 .avatar #avatar-image {
@@ -212,8 +204,7 @@ body {
   height: 120px;
   border-radius: 50%;
   padding: 8px;
-  background-color: var(--light-bg); /* Light background for avatar image */
-  filter: grayscale(100%); /* Grayscale for avatar image */
+  background-color: #e8eff6
 }
 
 .avatar-decoration {
@@ -222,8 +213,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  filter: grayscale(100%); /* Grayscale for avatar decoration */
+  transform: translate(-50%, -50%)
 }
 
 .status {
@@ -232,8 +222,7 @@ body {
   -webkit-transform: translate(50%, 50%);
   transform: translate(50%, 50%);
   bottom: 14.64%;
-  right: 14.64%;
-  filter: grayscale(100%); /* Grayscale for status icon */
+  right: 14.64%
 }
 
 .body,
@@ -267,14 +256,12 @@ body {
 }
 
 .tooltip {
-  font-size: .9em;
-  color: var(--dark-text);
+  font-size: .9em
 }
 
 .id,
 .id::after {
-  font-size: .8em;
-  color: var(--text-color);
+  font-size: .8em
 }
 
 :hover.tooltip::after {
@@ -284,8 +271,8 @@ body {
   top: unset;
   left: 55%;
   transform: translate(-50%, -50%);
-  background-color: #333; /* Dark tooltip background */
-  color: #fff; /* White tooltip text */
+  background-color: #111214;
+  color: #fff;
   padding: 10px;
   border-radius: 5px;
   z-index: 2;
@@ -303,7 +290,7 @@ body {
   left: 55%;
   transform: translate(-50%, -50%);
   border: 5px solid transparent;
-  border-top-color: #333; /* Dark tooltip arrow */
+  border-top-color: #111214
 }
 
 a:hover.tooltip::after {
@@ -323,8 +310,7 @@ a:hover.tooltip::after {
   background: 0 0;
   text-align: start;
   padding: 0;
-  cursor: pointer;
-  color: var(--text-color);
+  cursor: pointer
 }
 
 #message-input,
@@ -336,7 +322,7 @@ a:hover.tooltip::after {
   content: attr(aria-label);
   width: max-content;
   bottom: 8px;
-  background-color: #333;
+  background-color: #111214;
   color: #fff;
   padding: 10px;
   border-radius: 5px
@@ -359,23 +345,22 @@ a:hover.tooltip::after {
   content: "";
   top: 0;
   border: 5px solid transparent;
-  border-top-color: #333
+  border-top-color: #111214
 }
 
 .id.clicked::after {
-  background-color: #555 /* Darker gray for clicked state */
+  background-color: #23a559
 }
 
 .id.clicked::before {
-  border-top-color: #555 /* Darker gray for clicked state */
+  border-top-color: #23a559
 }
 
 #status-image {
   width: 20px;
   height: 20px;
   padding: 7px;
-  border-radius: 50%;
-  filter: grayscale(100%); /* Grayscale status image */
+  border-radius: 50%
 }
 
 .badges {
@@ -383,14 +368,13 @@ a:hover.tooltip::after {
   padding: 2px;
   border-radius: 10px;
   top: 219px;
-  left: 160px;
-  background-color: rgba(0, 0, 0, 0.05); /* Subtle background for badges */
+  left: 160px
 }
 
 .card,
 .roles-body .rol {
-  --primary-s-top: 0%;
-  --primary-s-bottom: 0%
+  --primary-s-top: 45%;
+  --primary-s-bottom: 45%
 }
 
 .badges img {
@@ -410,11 +394,9 @@ a:hover.tooltip::after {
 
 .card {
   margin: 80px 16px 16px;
-  --primary-l-top: 100%; /* White for card gradients */
-  --primary-l-bottom: 95%; /* Slightly darker white */
-  border-radius: 5px;
-  background-color: var(--card-background); /* White card background */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  --primary-l-top: 94%;
+  --primary-l-bottom: 94%;
+  border-radius: 5px
 }
 
 .name-box {
@@ -425,15 +407,13 @@ a:hover.tooltip::after {
 
 .display-name {
   font-size: 20px;
-  font-weight: bolder;
-  color: var(--text-color);
+  font-weight: bolder
 }
 
 .username {
   font-weight: 600;
   border-radius: 50%;
-  font-size: .9em;
-  color: var(--medium-text);
+  font-size: .9em
 }
 
 .platform,
@@ -445,7 +425,7 @@ a:hover.tooltip::after {
 .body .title-body,
 .pronouns {
   font-size: 14px;
-  color: var(--dark-text);
+  color: var(--text-color)
 }
 
 .pronouns {
@@ -464,15 +444,13 @@ a:hover.tooltip::after {
   width: 24px !important;
   height: 24px !important;
   object-fit: cover;
-  image-rendering: pixelated;
-  filter: grayscale(100%); /* Grayscale custom status image */
+  image-rendering: pixelated
 }
 
 .custom-status-text {
   margin: 0;
   padding: 0;
-  font-weight: 400;
-  color: var(--text-color);
+  font-weight: 400
 }
 
 .about-me {
@@ -484,21 +462,18 @@ a:hover.tooltip::after {
 .flag {
   display: inline-block;
   width: 22px;
-  height: 14px;
-  filter: grayscale(100%); /* Grayscale flag */
+  height: 14px
 }
 
 .flag img {
   width: 20px;
-  height: 20px;
-  filter: grayscale(100%); /* Grayscale flag image */
+  height: 20px
 }
 
 .divider {
   height: 0;
   margin-top: 5px;
-  margin-bottom: 0;
-  border-bottom: 1px solid var(--card-border); /* Light gray divider */
+  margin-bottom: 0
 }
 
 .body {
@@ -508,8 +483,7 @@ a:hover.tooltip::after {
 .body .title-body {
   font-weight: 700;
   line-height: 16px;
-  margin-bottom: 8px;
-  color: var(--text-color);
+  margin-bottom: 8px
 }
 
 .body .roles-body {
@@ -517,7 +491,7 @@ a:hover.tooltip::after {
 }
 
 .content {
-  border-top: 1px solid var(--card-border); /* Light gray border for content area */
+  border-top: 1px solid var(--box-shadow-color);
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -549,9 +523,9 @@ a:hover.tooltip::after {
 }
 
 .roles-body .rol {
-  background: var(--light-bg); /* Light gray background for roles */
-  --primary-l-top: 98%;
-  --primary-l-bottom: 98%;
+  background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)));
+  --primary-l-top: 96%;
+  --primary-l-bottom: 96%;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -562,12 +536,11 @@ a:hover.tooltip::after {
   box-sizing: border-box;
   height: 22px;
   font-size: 12px;
-  font-weight: 500;
-  border: 1px solid var(--card-border); /* Light gray border for roles */
+  font-weight: 500
 }
 
 .roles-body .rol span {
-  color: var(--dark-text);
+  color: var(--text-color);
   margin-left: 4px;
   margin-right: 4px
 }
@@ -591,13 +564,11 @@ a:hover.tooltip::after {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-decoration: none;
-  border: 1px solid var(--card-border); /* Light gray border for platforms */
-  background-color: var(--card-background); /* White background for platforms */
+  text-decoration: none
 }
 
 .platform-username {
-  color: var(--dark-text);
+  color: var(--text-color);
   font-size: .9em;
   font-weight: 600;
   margin-left: 10px;
@@ -607,14 +578,12 @@ a:hover.tooltip::after {
 }
 
 .platform::hover {
-  text-decoration: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover */
+  text-decoration: none
 }
 
 .platform-icon {
   width: 24px;
-  height: 24px;
-  filter: grayscale(100%); /* Grayscale platform icons */
+  height: 24px
 }
 
 .connect {
@@ -623,20 +592,29 @@ a:hover.tooltip::after {
   display: flex;
   width: 20px;
   height: 20px;
-  -webkit-filter: grayscale(100%); /* Grayscale connect icon */
-  filter: grayscale(100%);
+  -webkit-filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%);
+  filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%)
 }
 
 .connect:hover {
-  -webkit-filter: brightness(50%); /* Darker on hover */
-  filter: brightness(50%);
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%)
 }
 
-.softpink,
-.rosepink,
-.green,
+.softpink {
+  color: #f8bbd0
+}
+
+.rosepink {
+  color: #ecdcd4
+}
+
+.green {
+  color: #1ed760
+}
+
 .blue {
-  color: var(--medium-text); /* Desaturate specific color classes */
+  color: #ffffff
 }
 
 .chat-container {
@@ -655,17 +633,16 @@ a:hover.tooltip::after {
   border: none;
   outline: 0;
   font-size: 16px;
-  font-weight: 500;
-  color: var(--text-color);
+  font-weight: 500
 }
 
 @media (width <=640px) {
   .container::before {
     background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAk2WIuw3O-yngsxTai0-QylechmmTQMmDsEaFxHLOcjBN4r_14pWv9lPbj1mbGzNWN6Vl0fXgN46Wxz8LzbWFaNsZH5_r7TTY7KX0_5VVbHJlYei5byTYEBLPN3mGnsQxPzKRcVCJqVO3yjy5mIFFRGn4LVPL56Hpin4TrPvffERsaFLIa6tkWAjoZsQ/s320/for%20mobile0.jpg");
     margin: -2px;
-    filter: grayscale(100%) blur(2px);
+    filter: blur(2px);
     background-color: rgba(0, 0, 0, .5);
-    background-blend-mode: multiply
+    background-blend-mode: darken
   }
 
   .profile {
