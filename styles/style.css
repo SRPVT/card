@@ -290,7 +290,7 @@ body {
   left: 55%;
   transform: translate(-50%, -50%);
   border: 5px solid transparent;
-  border-top-color: #111214
+  border-top-color: #ffffff
 }
 
 a:hover.tooltip::after {
