@@ -34,14 +34,14 @@
 }
 
 :root {
-  --primary-h-top: 206deg;
-  --primary-s-top: 41%;
-  --primary-l-top: 88%;
-  --primary-h-bottom: 212deg;
-  --primary-s-bottom: 58%;
-  --primary-l-bottom: 44%;
-  --text-color: rgb(255, 255, 255);
-  --box-shadow-color: rgba(0, 0, 0, 0.1)
+  --primary-h-top: 0deg;
+  --primary-s-top: 0%;
+  --primary-l-top: 90%;
+  --primary-h-bottom: 0deg;
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 20%;
+  --text-color: white;
+  --box-shadow-color: rgba(255, 255, 255, 0.1)
 }
 
 .badges,
@@ -63,7 +63,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary-h-top), 45%, 50%, .1);
+  background-color: hsl(var(--primary-h-top), 0%, 50%, .1);
   border-radius: 10px
 }
 
@@ -90,7 +90,7 @@ img {
 }
 
 .about-section a {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none
 }
 
@@ -133,7 +133,7 @@ body {
 }
 
 .profile-border {
-  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   padding: 5px;
   flex-direction: column;
   max-height: calc(100% - 100px)
@@ -148,10 +148,10 @@ body {
 .profile {
   z-index: 1;
   flex-direction: column;
-  --primary-s-top: 43%;
+  --primary-s-top: 0%;
   --primary-l-top: 99%;
-  --primary-s-bottom: 47%;
-  --primary-l-bottom: 78%;
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 15%;
   width: 600px;
   max-height: calc(100vh - 100px)
 }
@@ -164,10 +164,10 @@ body {
 
 .avatar,
 .avatar #avatar-image {
-  --primary-s-top: 42%;
+  --primary-s-top: 0%;
   --primary-l-top: 95%;
-  --primary-s-bottom: 44%;
-  --primary-l-bottom: 94%
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 20%
 }
 
 .profile .banner {
@@ -193,9 +193,9 @@ body {
 
 .badges,
 .status {
-  --primary-s-top: 41%;
+  --primary-s-top: 0%;
   --primary-l-top: 97%;
-  --primary-s-bottom: 41%;
+  --primary-s-bottom: 0%;
   --primary-l-bottom: 97%
 }
 
@@ -204,7 +204,8 @@ body {
   height: 120px;
   border-radius: 50%;
   padding: 8px;
-  background-color: #000000
+  background-color: #222;
+  border: 2px solid white;
 }
 
 .avatar-decoration {
@@ -271,7 +272,7 @@ body {
   top: unset;
   left: 55%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff;
+  background-color: #000;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
@@ -280,7 +281,8 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px
+  max-width: 150px;
+  border: 1px solid white;
 }
 
 :hover.tooltip::before {
@@ -290,7 +292,7 @@ body {
   left: 55%;
   transform: translate(-50%, -50%);
   border: 5px solid transparent;
-  border-top-color: #ffffff
+  border-top-color: #000
 }
 
 a:hover.tooltip::after {
@@ -322,10 +324,11 @@ a:hover.tooltip::after {
   content: attr(aria-label);
   width: max-content;
   bottom: 8px;
-  background-color: #111214;
+  background-color: #000;
   color: #fff;
   padding: 10px;
-  border-radius: 5px
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .badges,
@@ -345,15 +348,15 @@ a:hover.tooltip::after {
   content: "";
   top: 0;
   border: 5px solid transparent;
-  border-top-color: #111214
+  border-top-color: #000
 }
 
 .id.clicked::after {
-  background-color: #ffffff
+  background-color: #23a559
 }
 
 .id.clicked::before {
-  border-top-color: #000000
+  border-top-color: #23a559
 }
 
 #status-image {
@@ -373,8 +376,10 @@ a:hover.tooltip::after {
 
 .card,
 .roles-body .rol {
-  --primary-s-top: 45%;
-  --primary-s-bottom: 45%
+  --primary-s-top: 0%;
+  --primary-s-bottom: 0%;
+  --primary-l-top: 15%;
+  --primary-l-bottom: 15%
 }
 
 .badges img {
@@ -394,9 +399,8 @@ a:hover.tooltip::after {
 
 .card {
   margin: 80px 16px 16px;
-  --primary-l-top: 94%;
-  --primary-l-bottom: 94%;
-  border-radius: 5px
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .name-box {
@@ -473,7 +477,8 @@ a:hover.tooltip::after {
 .divider {
   height: 0;
   margin-top: 5px;
-  margin-bottom: 0
+  margin-bottom: 0;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .body {
@@ -524,8 +529,8 @@ a:hover.tooltip::after {
 
 .roles-body .rol {
   background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)));
-  --primary-l-top: 96%;
-  --primary-l-bottom: 96%;
+  --primary-l-top: 20%;
+  --primary-l-bottom: 20%;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -536,7 +541,8 @@ a:hover.tooltip::after {
   box-sizing: border-box;
   height: 22px;
   font-size: 12px;
-  font-weight: 500
+  font-weight: 500;
+  border: 1px solid white;
 }
 
 .roles-body .rol span {
@@ -564,7 +570,9 @@ a:hover.tooltip::after {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-decoration: none
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid white;
 }
 
 .platform-username {
@@ -592,29 +600,13 @@ a:hover.tooltip::after {
   display: flex;
   width: 20px;
   height: 20px;
-  -webkit-filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%);
-  filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%)
+  -webkit-filter: invert(100%);
+  filter: invert(100%)
 }
 
 .connect:hover {
-  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%);
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%)
-}
-
-.softpink {
-  color: #f8bbd0
-}
-
-.rosepink {
-  color: #ecdcd4
-}
-
-.green {
-  color: #1ed760
-}
-
-.blue {
-  color: #00FFFF
+  -webkit-filter: invert(100%) brightness(150%);
+  filter: invert(100%) brightness(150%)
 }
 
 .chat-container {
@@ -624,7 +616,9 @@ a:hover.tooltip::after {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  display: none !important
+  display: none !important;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid white;
 }
 
 #message-input {
@@ -633,7 +627,9 @@ a:hover.tooltip::after {
   border: none;
   outline: 0;
   font-size: 16px;
-  font-weight: 500
+  font-weight: 500;
+  color: white;
+  background-color: transparent;
 }
 
 @media (width <=640px) {
