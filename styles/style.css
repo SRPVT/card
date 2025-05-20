@@ -26,7 +26,7 @@
 }
 
 * {
-  transition: width .5s, height .5s;
+  transition: all 0.3s ease;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -36,12 +36,14 @@
 :root {
   --primary-h-top: 0deg;
   --primary-s-top: 0%;
-  --primary-l-top: 90%;
+  --primary-l-top: 100%;
   --primary-h-bottom: 0deg;
   --primary-s-bottom: 0%;
-  --primary-l-bottom: 20%;
+  --primary-l-bottom: 0%;
   --text-color: white;
-  --box-shadow-color: rgba(255, 255, 255, 0.1)
+  --box-shadow-color: rgba(255, 255, 255, 0.3);
+  --neon-glow: 0 0 15px rgba(255, 255, 255, 0.8);
+  --neon-glow-sm: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 .badges,
@@ -63,7 +65,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary-h-top), 0%, 50%, .1);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px
 }
 
@@ -91,19 +93,26 @@ img {
 
 .about-section a {
   color: #ffffff;
-  text-decoration: none
+  text-decoration: none;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5)
 }
 
 .about-section a:hover {
-  text-decoration: underline
+  text-decoration: underline;
+  text-shadow: 0 0 10px white
 }
 
 body {
-  padding: 0
+  padding: 0;
+  background-color: #000
 }
 
 .box-color {
-  background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)))
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)) 50%,
+    hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)) 50%
+  )
 }
 
 .container {
@@ -125,15 +134,17 @@ body {
   background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZoQ_cYmmOe98lZFSI2sj4UYX0y-RyqHcw_gdp6oXKrUP9VumpyiRPgnAvPzuLC99uWmTVWnfLR_M5e3PME1QVX3NJ0rWBfnHiF5gmqwMYZxfH6XfrZyc10hh7bJQ1XQY5vNVUEALJ6aJtSFXm20kv1KTdb4-1x42ojYEwVhrz76hZatppELzZaRuNXb8/s320/wp3770433-red-dead-redemption-2-4k-wallpapers.jpg");
   background-repeat: no-repeat;
   z-index: -1;
-  filter: blur(5px);
-  background-color: rgba(0, 0, 0, .5);
-  background-blend-mode: darken;
+  filter: blur(5px) brightness(0.5);
+  background-color: rgba(0, 0, 0, .8);
+  background-blend-mode: overlay;
   background-size: cover;
   background-position: center
 }
 
 .profile-border {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    var(--neon-glow),
+    inset 0 0 20px rgba(255, 255, 255, 0.3);
   padding: 5px;
   flex-direction: column;
   max-height: calc(100% - 100px)
@@ -149,11 +160,18 @@ body {
   z-index: 1;
   flex-direction: column;
   --primary-s-top: 0%;
-  --primary-l-top: 99%;
+  --primary-l-top: 100%;
   --primary-s-bottom: 0%;
-  --primary-l-bottom: 15%;
+  --primary-l-bottom: 0%;
   width: 600px;
-  max-height: calc(100vh - 100px)
+  max-height: calc(100vh - 100px);
+  background: linear-gradient(
+    to bottom,
+    white 50%,
+    black 50%
+  );
+  border: 2px solid white;
+  box-shadow: var(--neon-glow)
 }
 
 .avatar,
@@ -165,13 +183,14 @@ body {
 .avatar,
 .avatar #avatar-image {
   --primary-s-top: 0%;
-  --primary-l-top: 95%;
+  --primary-l-top: 100%;
   --primary-s-bottom: 0%;
-  --primary-l-bottom: 20%
+  --primary-l-bottom: 0%
 }
 
 .profile .banner {
-  height: 190px
+  height: 190px;
+  background: linear-gradient(to right, black 50%, white 50%);
 }
 
 .badges .badges-left,
@@ -181,7 +200,8 @@ body {
 
 .profile .banner img {
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
+  mix-blend-mode: luminosity
 }
 
 .avatar {
@@ -194,9 +214,9 @@ body {
 .badges,
 .status {
   --primary-s-top: 0%;
-  --primary-l-top: 97%;
+  --primary-l-top: 100%;
   --primary-s-bottom: 0%;
-  --primary-l-bottom: 97%
+  --primary-l-bottom: 100%
 }
 
 .avatar #avatar-image {
@@ -204,8 +224,11 @@ body {
   height: 120px;
   border-radius: 50%;
   padding: 8px;
-  background-color: #222;
-  border: 2px solid white;
+  background-color: #000;
+  border: 3px solid white;
+  box-shadow: 
+    0 0 15px white,
+    inset 0 0 10px white
 }
 
 .avatar-decoration {
@@ -223,7 +246,9 @@ body {
   -webkit-transform: translate(50%, 50%);
   transform: translate(50%, 50%);
   bottom: 14.64%;
-  right: 14.64%
+  right: 14.64%;
+  background-color: white;
+  box-shadow: var(--neon-glow-sm)
 }
 
 .body,
@@ -283,6 +308,7 @@ body {
   text-overflow: ellipsis;
   max-width: 150px;
   border: 1px solid white;
+  box-shadow: var(--neon-glow-sm)
 }
 
 :hover.tooltip::before {
@@ -329,6 +355,7 @@ a:hover.tooltip::after {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid white;
+  box-shadow: var(--neon-glow-sm)
 }
 
 .badges,
@@ -363,7 +390,8 @@ a:hover.tooltip::after {
   width: 20px;
   height: 20px;
   padding: 7px;
-  border-radius: 50%
+  border-radius: 50%;
+  filter: brightness(0)
 }
 
 .badges {
@@ -383,7 +411,8 @@ a:hover.tooltip::after {
 }
 
 .badges img {
-  width: 26px
+  width: 26px;
+  filter: brightness(0) invert(1)
 }
 
 .badges .badges-left img {
@@ -400,7 +429,9 @@ a:hover.tooltip::after {
 .card {
   margin: 80px 16px 16px;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 2px solid white;
+  box-shadow: var(--neon-glow);
+  background: rgba(0, 0, 0, 0.7)
 }
 
 .name-box {
@@ -411,13 +442,15 @@ a:hover.tooltip::after {
 
 .display-name {
   font-size: 20px;
-  font-weight: bolder
+  font-weight: bolder;
+  text-shadow: 0 0 10px white
 }
 
 .username {
   font-weight: 600;
   border-radius: 50%;
-  font-size: .9em
+  font-size: .9em;
+  text-shadow: 0 0 5px white
 }
 
 .platform,
@@ -448,7 +481,8 @@ a:hover.tooltip::after {
   width: 24px !important;
   height: 24px !important;
   object-fit: cover;
-  image-rendering: pixelated
+  image-rendering: pixelated;
+  filter: brightness(0) invert(1)
 }
 
 .custom-status-text {
@@ -478,7 +512,7 @@ a:hover.tooltip::after {
   height: 0;
   margin-top: 5px;
   margin-bottom: 0;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3)
 }
 
 .body {
@@ -488,7 +522,8 @@ a:hover.tooltip::after {
 .body .title-body {
   font-weight: 700;
   line-height: 16px;
-  margin-bottom: 8px
+  margin-bottom: 8px;
+  text-shadow: 0 0 5px white
 }
 
 .body .roles-body {
@@ -528,7 +563,6 @@ a:hover.tooltip::after {
 }
 
 .roles-body .rol {
-  background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)));
   --primary-l-top: 20%;
   --primary-l-bottom: 20%;
   display: flex;
@@ -543,12 +577,25 @@ a:hover.tooltip::after {
   font-size: 12px;
   font-weight: 500;
   border: 1px solid white;
+  box-shadow: var(--neon-glow-sm)
 }
 
+/* Rainbow role colors */
+.roles-body .rol:nth-child(9n+1) { background: linear-gradient(to right, #ff5555, #ff0000); }
+.roles-body .rol:nth-child(9n+2) { background: linear-gradient(to right, #55ff55, #00ff00); }
+.roles-body .rol:nth-child(9n+3) { background: linear-gradient(to right, #5555ff, #0000ff); }
+.roles-body .rol:nth-child(9n+4) { background: linear-gradient(to right, #ffff55, #ffff00); }
+.roles-body .rol:nth-child(9n+5) { background: linear-gradient(to right, #ff55ff, #ff00ff); }
+.roles-body .rol:nth-child(9n+6) { background: linear-gradient(to right, #55ffff, #00ffff); }
+.roles-body .rol:nth-child(9n+7) { background: linear-gradient(to right, #ffaa00, #ff8000); }
+.roles-body .rol:nth-child(9n+8) { background: linear-gradient(to right, #aa00ff, #8000ff); }
+.roles-body .rol:nth-child(9n+9) { background: linear-gradient(to right, #00aaff, #0080ff); }
+
 .roles-body .rol span {
-  color: var(--text-color);
+  color: white;
   margin-left: 4px;
-  margin-right: 4px
+  margin-right: 4px;
+  text-shadow: 0 0 3px black
 }
 
 .social-divider {
@@ -571,8 +618,15 @@ a:hover.tooltip::after {
   -ms-flex-align: center;
   align-items: center;
   text-decoration: none;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   border: 1px solid white;
+  box-shadow: var(--neon-glow-sm);
+  transition: all 0.3s ease
+}
+
+.platform:hover {
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px)
 }
 
 .platform-username {
@@ -585,13 +639,10 @@ a:hover.tooltip::after {
   flex-grow: 1
 }
 
-.platform::hover {
-  text-decoration: none
-}
-
 .platform-icon {
   width: 24px;
-  height: 24px
+  height: 24px;
+  filter: brightness(0) invert(1)
 }
 
 .connect {
@@ -600,12 +651,10 @@ a:hover.tooltip::after {
   display: flex;
   width: 20px;
   height: 20px;
-  -webkit-filter: invert(100%);
   filter: invert(100%)
 }
 
 .connect:hover {
-  -webkit-filter: invert(100%) brightness(150%);
   filter: invert(100%) brightness(150%)
 }
 
@@ -617,8 +666,9 @@ a:hover.tooltip::after {
   padding: 10px;
   border-radius: 5px;
   display: none !important;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid white;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid white;
+  box-shadow: var(--neon-glow)
 }
 
 #message-input {
@@ -629,16 +679,15 @@ a:hover.tooltip::after {
   font-size: 16px;
   font-weight: 500;
   color: white;
-  background-color: transparent;
+  background-color: transparent
 }
 
 @media (width <=640px) {
   .container::before {
     background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAk2WIuw3O-yngsxTai0-QylechmmTQMmDsEaFxHLOcjBN4r_14pWv9lPbj1mbGzNWN6Vl0fXgN46Wxz8LzbWFaNsZH5_r7TTY7KX0_5VVbHJlYei5byTYEBLPN3mGnsQxPzKRcVCJqVO3yjy5mIFFRGn4LVPL56Hpin4TrPvffERsaFLIa6tkWAjoZsQ/s320/for%20mobile0.jpg");
     margin: -2px;
-    filter: blur(2px);
-    background-color: rgba(0, 0, 0, .5);
-    background-blend-mode: darken
+    filter: blur(2px) brightness(0.5);
+    background-color: rgba(0, 0, 0, .8)
   }
 
   .profile {
@@ -704,4 +753,15 @@ a:hover.tooltip::after {
   100% {
     opacity: 1
   }
+}
+
+/* Pulsing neon animation */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+  100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+}
+
+.profile-border {
+  animation: pulse 3s infinite;
 }
