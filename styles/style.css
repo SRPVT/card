@@ -34,16 +34,15 @@
 }
 
 :root {
-  --primary-h-top: 206deg;
-  --primary-s-top: 41%;
-  --primary-l-top: 88%;
-  --primary-h-bottom: 212deg;
-  --primary-s-bottom: 58%;
-  --primary-l-bottom: 44%;
+  --primary-h-top: 206deg; /* This will be updated for Primary color HUE */
+  --primary-s-top: 41%;  /* This will be updated for Primary color SATURATION */
+  --primary-l-top: 88%;  /* This will be updated for Primary color LIGHTNESS */
+  --primary-h-bottom: 212deg; /* This will be updated for Accent color HUE */
+  --primary-s-bottom: 58%; /* This will be updated for Accent color SATURATION */
+  --primary-l-bottom: 44%; /* This will be updated for Accent color LIGHTNESS */
   --text-color: black;
-  --box-shadow-color: rgba(0, 0, 0, 0.1)
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
 }
-
 .badges,
 .card,
 .roles-body .rol,
