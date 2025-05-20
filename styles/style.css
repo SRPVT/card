@@ -133,7 +133,7 @@ body {
 }
 
 .profile-border {
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .1);
+  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1);
   padding: 5px;
   flex-direction: column;
   max-height: calc(100% - 100px)
@@ -204,7 +204,7 @@ body {
   height: 120px;
   border-radius: 50%;
   padding: 8px;
-  background-color: #e8eff6
+  background-color: #000000
 }
 
 .avatar-decoration {
@@ -271,7 +271,7 @@ body {
   top: unset;
   left: 55%;
   transform: translate(-50%, -50%);
-  background-color: #111214;
+  background-color: #ffffff;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
@@ -349,11 +349,11 @@ a:hover.tooltip::after {
 }
 
 .id.clicked::after {
-  background-color: #23a559
+  background-color: #ffffff
 }
 
 .id.clicked::before {
-  border-top-color: #23a559
+  border-top-color: #000000
 }
 
 #status-image {
@@ -614,7 +614,7 @@ a:hover.tooltip::after {
 }
 
 .blue {
-  color: #ffffff
+  color: #00FFFF
 }
 
 .chat-container {
