@@ -40,7 +40,7 @@
   --primary-h-bottom: 212deg;
   --primary-s-bottom: 58%;
   --primary-l-bottom: 44%;
-  --text-color: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
   --box-shadow-color: rgba(0, 0, 0, 0.1)
 }
 
@@ -614,7 +614,7 @@ a:hover.tooltip::after {
 }
 
 .blue {
-  color: #ffffff
+  color: #ff0000
 }
 
 .chat-container {
