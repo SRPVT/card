@@ -22,7 +22,8 @@
 
 .display-name,
 .username {
-  color: var(--text-color)
+  color: var(--neon-color);
+  text-shadow: var(--neon-glow);
 }
 
 * {
@@ -34,14 +35,16 @@
 }
 
 :root {
-  --primary-h-top: 206deg;
-  --primary-s-top: 41%;
-  --primary-l-top: 88%;
-  --primary-h-bottom: 212deg;
-  --primary-s-bottom: 58%;
-  --primary-l-bottom: 44%;
-  --text-color: rgb(0, 0, 0);
-  --box-shadow-color: rgba(0, 0, 0, 0.1)
+  --primary-h-top: 0deg;
+  --primary-s-top: 0%;
+  --primary-l-top: 10%;
+  --primary-h-bottom: 0deg;
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 5%;
+  --text-color: rgb(255, 255, 255);
+  --neon-color: rgba(255, 255, 255, 0.8);
+  --neon-glow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  --box-shadow-color: rgba(255, 255, 255, 0.2)
 }
 
 .badges,
@@ -63,8 +66,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary-h-top), 45%, 50%, .1);
-  border-radius: 10px
+  background-color: var(--neon-color);
+  border-radius: 10px;
+  box-shadow: var(--neon-glow);
 }
 
 .profile,
@@ -90,12 +94,14 @@ img {
 }
 
 .about-section a {
-  color: #000000;
-  text-decoration: none
+  color: var(--neon-color);
+  text-decoration: none;
+  text-shadow: var(--neon-glow);
 }
 
 .about-section a:hover {
-  text-decoration: underline
+  text-decoration: underline;
+  filter: brightness(1.2);
 }
 
 body {
@@ -103,7 +109,9 @@ body {
 }
 
 .box-color {
-  background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)))
+  background: linear-gradient(to bottom, #1e1e1e, #121212);
+  border: 1px solid var(--neon-color);
+  box-shadow: var(--neon-glow);
 }
 
 .container {
@@ -133,27 +141,32 @@ body {
 }
 
 .profile-border {
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .1);
+  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
   padding: 5px;
   flex-direction: column;
-  max-height: calc(100% - 100px)
+  max-height: calc(100% - 100px);
+  background-color: #1e1e1e;
+  border: 1px solid var(--neon-color);
 }
 
 .chat-container,
 .platform,
 .roles-body .rol {
-  box-shadow: 0 0 0 1px var(--box-shadow-color)
+  box-shadow: 0 0 0 1px var(--neon-color), var(--neon-glow);
+  background-color: rgba(30, 30, 30, 0.9);
 }
 
 .profile {
   z-index: 1;
   flex-direction: column;
-  --primary-s-top: 43%;
-  --primary-l-top: 99%;
-  --primary-s-bottom: 47%;
-  --primary-l-bottom: 78%;
+  --primary-s-top: 0%;
+  --primary-l-top: 10%;
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 5%;
   width: 600px;
-  max-height: calc(100vh - 100px)
+  max-height: calc(100vh - 100px);
+  border: 1px solid var(--neon-color);
+  box-shadow: var(--neon-glow);
 }
 
 .avatar,
@@ -164,10 +177,10 @@ body {
 
 .avatar,
 .avatar #avatar-image {
-  --primary-s-top: 42%;
-  --primary-l-top: 95%;
-  --primary-s-bottom: 44%;
-  --primary-l-bottom: 94%
+  --primary-s-top: 0%;
+  --primary-l-top: 20%;
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 10%
 }
 
 .profile .banner {
@@ -193,10 +206,10 @@ body {
 
 .badges,
 .status {
-  --primary-s-top: 41%;
-  --primary-l-top: 97%;
-  --primary-s-bottom: 41%;
-  --primary-l-bottom: 97%
+  --primary-s-top: 0%;
+  --primary-l-top: 30%;
+  --primary-s-bottom: 0%;
+  --primary-l-bottom: 20%
 }
 
 .avatar #avatar-image {
@@ -204,7 +217,7 @@ body {
   height: 120px;
   border-radius: 50%;
   padding: 8px;
-  background-color: #e8eff6
+  background-color: #2c2c2c
 }
 
 .avatar-decoration {
@@ -373,8 +386,8 @@ a:hover.tooltip::after {
 
 .card,
 .roles-body .rol {
-  --primary-s-top: 45%;
-  --primary-s-bottom: 45%
+  --primary-s-top: 0%;
+  --primary-s-bottom: 0%
 }
 
 .badges img {
@@ -394,8 +407,8 @@ a:hover.tooltip::after {
 
 .card {
   margin: 80px 16px 16px;
-  --primary-l-top: 94%;
-  --primary-l-bottom: 94%;
+  --primary-l-top: 18%;
+  --primary-l-bottom: 12%;
   border-radius: 5px
 }
 
@@ -524,8 +537,8 @@ a:hover.tooltip::after {
 
 .roles-body .rol {
   background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)));
-  --primary-l-top: 96%;
-  --primary-l-bottom: 96%;
+  --primary-l-top: 20%;
+  --primary-l-bottom: 15%;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -624,7 +637,7 @@ a:hover.tooltip::after {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  display: none !important
+  display: block !important
 }
 
 #message-input {
@@ -698,6 +711,178 @@ a:hover.tooltip::after {
   .chat-container {
     width: 200px
   }
+}
+
+/* Discord Login Styles */
+.login-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.discord-login-btn, .login-prompt-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #5865f2;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.discord-login-btn:hover, .login-prompt-btn:hover {
+  background: #4752c4;
+}
+
+.discord-login-btn img, .login-prompt-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* User Profile Display */
+.user-profile-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: #ed4245;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background: #c03537;
+}
+
+/* Enhanced Message Interface */
+.message-login-prompt {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.message-login-prompt p {
+  color: white;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.discord-message-box {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  padding: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+#message-input {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  flex: 1;
+}
+
+#message-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.send-button {
+  background: #5865f2;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  min-width: 32px;
+  height: 32px;
+}
+
+.send-button:hover:not(:disabled) {
+  background: #4752c4;
+}
+
+.send-button:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.message-status {
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  min-height: 16px;
+}
+
+.message-status.success {
+  color: #57f287;
+}
+
+.message-status.error {
+  color: #ed4245;
+}
+
+.message-status.sending {
+  color: #fee75c;
 }
 
 @keyframes fadeIn {
