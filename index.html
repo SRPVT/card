@@ -307,3 +307,112 @@
   }
 </style>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cube Loader</title>
+<style>
+  /* --- Background & Body --- */
+  body {
+    margin: 0;
+    padding: 0;
+    background: #36393f;
+    font-family: sans-serif;
+    overflow: hidden; /* Prevent scroll during loader */
+  }
+
+  /* --- Fullscreen Loader Overlay --- */
+  .loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: #36393f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* --- Cube Loader Animation --- */
+  .cubesWrapper {
+    position: relative;
+    width: 52px;
+    height: 52px;
+  }
+
+  .cube {
+    background-color: #7289da;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: cubeSpinner 1.8s ease-in-out infinite;
+  }
+
+  .cube:last-child {
+    animation-delay: -0.9s;
+  }
+
+  @keyframes cubeSpinner {
+    25% {
+      transform: translateX(22px) rotate(-90deg) scale(0.5);
+    }
+    50% {
+      transform: translateX(22px) translateY(22px) rotate(-180deg);
+    }
+    75% {
+      transform: translateX(0) translateY(22px) rotate(-270deg) scale(0.5);
+    }
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+
+  /* --- Hide loader smoothly --- */
+  .fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  /* --- Main content (hidden initially) --- */
+  .main-content {
+    display: none;
+    text-align: center;
+    color: white;
+    margin-top: 20vh;
+  }
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader-overlay" id="loader">
+  <span class="cubesWrapper">
+    <span class="cube"></span>
+    <span class="cube"></span>
+  </span>
+</div>
+
+<!-- Your Site Content -->
+
+<script>
+  // Wait 5 seconds then hide loader
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('fade-out');
+
+      // Show main content
+      document.getElementById('content').style.display = 'block';
+
+      // Optional: enable scrolling again
+      document.body.style.overflow = 'auto';
+    }, 5000);
+  });
+</script>
+
+</body>
+</html>
