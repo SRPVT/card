@@ -416,6 +416,43 @@ a:hover.tooltip::after {
   font-size: .9em
 }
 
+.username-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.clan-tag {
+  display: flex;
+  align-items: center;
+  background-color: rgba(30, 31, 34, 0.6);
+  padding: 1px 6px;
+  border-radius: 12px;
+  gap: 4px;
+  height: 20px;
+  cursor: default;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.clan-tag img {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  opacity: 1;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.clan-tag span {
+  font-size: 11px;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  letter-spacing: 0.01em;
+}
+
 .platform,
 .roles-body .rol {
   border-radius: 4px
