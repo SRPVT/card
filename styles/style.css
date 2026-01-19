@@ -34,14 +34,14 @@
 }
 
 :root {
-  --bg-color: #111214;
-  --card-bg: #232428;
-  --section-bg: #111214;
-  --header-bg: #111214;
-  --text-main: #f2f3f5;
-  --text-muted: #b5bac1;
-  --text-color: #f2f3f5;
-  --box-shadow-color: rgba(0, 0, 0, 0.3)
+  --primary-h-top: 206deg;
+  --primary-s-top: 41%;
+  --primary-l-top: 88%;
+  --primary-h-bottom: 212deg;
+  --primary-s-bottom: 58%;
+  --primary-l-bottom: 44%;
+  --text-color: rgb(0, 0, 0);
+  --box-shadow-color: rgba(0, 0, 0, 0.1)
 }
 
 .badges,
@@ -103,12 +103,7 @@ body {
 }
 
 .box-color {
-  background-color: var(--card-bg);
-}
-
-.profile-border {
-  background-color: #000000;
-  padding: 1px;
+  background: linear-gradient(to bottom, hsl(var(--primary-h-top), var(--primary-s-top), var(--primary-l-top)), hsl(var(--primary-h-bottom), var(--primary-s-bottom), var(--primary-l-bottom)))
 }
 
 .container {
@@ -122,16 +117,19 @@ body {
 .container::before {
   content: "";
   position: fixed;
+  margin: -15px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("public/baer.webp");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZoQ_cYmmOe98lZFSI2sj4UYX0y-RyqHcw_gdp6oXKrUP9VumpyiRPgnAvPzuLC99uWmTVWnfLR_M5e3PME1QVX3NJ0rWBfnHiF5gmqwMYZxfH6XfrZyc10hh7bJQ1XQY5vNVUEALJ6aJtSFXm20kv1KTdb4-1x42ojYEwVhrz76hZatppELzZaRuNXb8/s320/wp3770433-red-dead-redemption-2-4k-wallpapers.jpg");
   background-repeat: no-repeat;
   z-index: -1;
-  filter: blur(8px) brightness(0.4);
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, .5);
+  background-blend-mode: darken;
   background-size: cover;
-  background-position: center;
+  background-position: center
 }
 
 .profile-border {
@@ -150,9 +148,12 @@ body {
 .profile {
   z-index: 1;
   flex-direction: column;
-  width: 340px;
-  max-height: unset;
-  background-color: var(--card-bg);
+  --primary-s-top: 43%;
+  --primary-l-top: 99%;
+  --primary-s-bottom: 47%;
+  --primary-l-bottom: 78%;
+  width: 600px;
+  max-height: calc(100vh - 100px)
 }
 
 .avatar,
@@ -170,20 +171,24 @@ body {
 }
 
 .profile .banner {
-  height: 120px;
+  height: 190px
+}
+
+.badges .badges-left,
+.badges img {
+  height: 26px
 }
 
 .profile .banner img {
   height: 100%;
-  object-fit: cover;
+  object-fit: cover
 }
 
 .avatar {
   align-items: center;
   justify-content: center;
-  top: 60px;
-  left: 22px;
-  z-index: 2;
+  top: 120px;
+  left: 16px
 }
 
 .badges,
@@ -195,38 +200,29 @@ body {
 }
 
 .avatar #avatar-image {
-  width: 92px;
-  height: 92px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  padding: 6px;
-  background-color: var(--card-bg);
+  padding: 8px;
+  background-color: #e8eff6
 }
 
 .avatar-decoration {
-  width: 130px;
-  height: 130px;
+  width: 170px;
+  height: 170px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
 }
 
 .status {
-  width: 24px;
-  height: 24px;
-  bottom: 0px;
-  right: 0px;
-  background-color: var(--card-bg);
-  padding: 4px;
-  border-radius: 50%;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-#status-image {
-  width: 100%;
-  height: 100%;
+  max-width: 34px;
+  max-height: 44px;
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+  bottom: 14.64%;
+  right: 14.64%
 }
 
 .body,
@@ -368,7 +364,11 @@ a:hover.tooltip::after {
 }
 
 .badges {
-  display: none;
+  flex-direction: row-reverse;
+  padding: 2px;
+  border-radius: 10px;
+  top: 219px;
+  left: 160px
 }
 
 .card,
@@ -393,272 +393,27 @@ a:hover.tooltip::after {
 }
 
 .card {
-  margin: 45px 16px 16px;
-  padding: 0;
-  border-radius: 8px;
-  background-color: transparent;
+  margin: 80px 16px 16px;
+  --primary-l-top: 94%;
+  --primary-l-bottom: 94%;
+  border-radius: 5px
 }
 
 .name-box {
   flex-direction: column;
-  margin: 0 16px 14px;
-  padding: 0;
+  margin: 20px 20px 0;
+  padding-left: 5px
 }
 
 .display-name {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-main);
-  line-height: normal;
-  margin-bottom: 2px;
-}
-
-.headline-font {
-  font-family: 'Cinzel', serif;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: bolder
 }
 
 .username {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-main);
-}
-
-.username-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-  flex-wrap: wrap;
-}
-
-.clan-tag {
-  display: flex;
-  align-items: center;
-  background-color: rgba(30, 31, 34, 0.45);
-  padding: 1px 6px;
-  border-radius: 12px;
-  gap: 4px;
-  height: 20px;
-  cursor: default;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.clan-tag img {
-  width: 12px;
-  height: 12px;
-  opacity: 1;
-}
-
-.clan-tag span {
-  font-size: 11px;
-  font-weight: 800;
-  font-family: sans-serif;
-}
-
-.badges-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: 4px;
-}
-
-.badge-icon {
-  width: 18px;
-  height: 18px;
-  opacity: 1;
-}
-
-.status-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  color: var(--text-muted);
-}
-
-.status-box-gray {
-  width: 120px;
-  height: 14px;
-  background-color: #35363c;
-  border-radius: 3px;
-}
-
-.profile-body {
-  padding: 0 16px 16px;
-}
-
-.section-container {
-  background-color: #1e1f22;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-main);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  letter-spacing: 0.02em;
-}
-
-.games-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.game-item {
-  width: 32px;
-  height: 32px;
-  background-color: #313338;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 700;
-  overflow: hidden;
-}
-
-.game-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-}
-
-.game-count {
-  font-size: 12px;
-  color: var(--text-muted);
   font-weight: 600;
-}
-
-.playing-section {
-  background-color: #1e1f22;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 12px;
-}
-
-.playing-content {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.playing-icon {
-  width: 50px;
-  height: 50px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  font-size: 24px;
-  position: relative;
-}
-
-.playing-points {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  margin-top: 2px;
-}
-
-.dot {
-  width: 4px;
-  height: 4px;
-  background-color: #000;
   border-radius: 50%;
-}
-
-.playing-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.game-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.game-time {
-  font-size: 12px;
-  color: #23a559;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 2px;
-}
-
-.action-menu {
-  background-color: #1e1f22;
-  border-radius: 8px;
-  padding: 12px;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 0;
-  color: var(--text-main);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.menu-item:hover {
-  opacity: 0.8;
-}
-
-.menu-item.between {
-  justify-content: space-between;
-}
-
-.menu-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.red-status {
-  color: #f23f43;
-}
-
-.muted-icon {
-  color: var(--text-muted);
-  font-size: 12px;
-  margin-right: 4px;
-}
-
-.divider {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.06);
-  margin: 4px 0;
-}
-
-.muted-text {
-  color: var(--text-muted);
-}
-
-.link-item span {
-  font-weight: 600;
+  font-size: .9em
 }
 
 .platform,
