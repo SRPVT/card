@@ -778,3 +778,25 @@ a:hover.tooltip::after {
   background-color: rgba(0, 0, 0, 0.9) !important;
   filter: blur(8px);
 }
+/* ===============================
+   WHITE OUTLINE FOR CARD
+   =============================== */
+
+.profile-border {
+  border: 1.5px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Optional: slightly rounded, crisp edge */
+.profile-border {
+  border-radius: 10px;
+}
+
+/* Prevent inner sections from adding fake borders */
+.card,
+.body,
+.content,
+.platform,
+.roles-body .rol {
+  border-color: #111111 !important;
+}
