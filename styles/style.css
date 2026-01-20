@@ -709,3 +709,72 @@ a:hover.tooltip::after {
     opacity: 1
   }
 }
+/* ===============================
+   FORCE PURE BLACK THE RIGHT WAY
+   =============================== */
+
+/* Kill ALL gradients */
+.box-color,
+.profile,
+.profile-border,
+.card,
+.body,
+.content,
+.roles-body .rol,
+.platform,
+.chat-container {
+  background: #000000 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-color: #111111 !important;
+}
+
+/* Text → white */
+* {
+  --text-color: #ffffff;
+}
+
+.display-name,
+.username,
+.about-me,
+.pronouns,
+.body .title-body,
+.platform-username,
+.roles-body .rol span,
+.custom-status-text {
+  color: #ffffff !important;
+}
+
+/* Role pills slightly lifted (still black) */
+.roles-body .rol {
+  border: 1px solid #1a1a1a;
+}
+
+/* Connections cards */
+.platform {
+  border: 1px solid #1a1a1a;
+}
+
+/* Divider */
+.content {
+  border-top: 1px solid #1a1a1a !important;
+}
+
+/* Avatar ring */
+.avatar #avatar-image {
+  background: #000000 !important;
+}
+
+/* Badges strip */
+.badges {
+  background: #000000 !important;
+}
+
+/* ===============================
+   DARKEN BACKGROUND BEHIND CARD
+   =============================== */
+
+.container::before {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  filter: blur(8px);
+}
