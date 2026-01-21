@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits | BMR</title>
+    <meta name="description" content="Credits and Asset Ownership" />
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" crossorigin />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <style>
+        /* Specific Styles for Credits Page */
+        .credits-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .credits-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #5865F2;
+            padding-bottom: 10px;
+        }
+
+        .credits-text {
+            color: #dcddde;
+            /* Discord subtext text color */
+            font-family: "Playpen Sans", cursive;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-discord {
+            color: #5865F2;
+            /* Discord Blurple */
+            font-weight: bold;
+        }
+
+        .highlight-me {
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Professional Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #5865F2;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: "Playpen Sans", sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn i {
+            font-size: 1.2rem;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            color: #72767d;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Override some container specifics for this page if needed */
+        .profile-border {
+            align-items: center !important;
+            /* Center content vertically/horizontally in flex */
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return true;">
+
+    <div class="container">
+        <!-- Reusing the profile-border for the consistent card look -->
+        <div class="profile-border box-color" style="width: 500px; max-width: 90%; padding: 40px 20px;">
+
+            <div class="credits-container">
+                <h1 class="credits-title">Credits</h1>
+
+                <div class="credits-text">
+                    <p>
+                        All platform assets, icons, and UI elements <br>
+                        are the intellectual property of <br>
+                        <span class="highlight-discord"><i class="fab fa-discord"></i> Discord Inc.</span>
+                    </p>
+                    <br>
+                    <p>
+                        Only the <strong>Profile Picture</strong> and <strong>Banner</strong> <br>
+                        are owned by <span class="highlight-me">BMR</span>.
+                    </p>
+                </div>
+
+                <a href="#" class="download-btn">
+                    <i class="fas fa-download"></i> Download Source
+                </a>
+
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Profile
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
