@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,6 +27,12 @@
 </head>
 
 <body oncontextmenu="return true;">
+	<div class="loader-overlay" id="loader">
+		<span class="cubesWrapper">
+			<span class="cube"></span>
+			<span class="cube"></span>
+		</span>
+	</div>
 	<div class="container">
 		<div class="profile-border box-color">
 			<div class="profile box-color">
@@ -41,6 +47,10 @@
 							<img loading="lazy" class="avatar-decoration"
 								src="https://cdn.discordapp.com/avatar-decoration-presets/a_26f13552ff23d9d5b3204d1934245764.png?size=96&passthrough=true"
 								alt="" />
+							<div class="profile-effect">
+								<img src="https://cdn.discordapp.com/assets/profile_effects/effects/2023-10-27/shimmer.png"
+									alt="Profile Effect" class="effect-img">
+							</div>
 							<div class="status box-color" id="status-container">
 								<img id="status-image" src="./public/status/offline.svg" alt="" />
 							</div>
@@ -221,146 +231,18 @@
 			<span id="tooltip-name"></span>
 		</div>
 	</div>
+
+	<footer class="site-footer">
+		<div class="footer-content">
+			<span>Updated on 21-01-2026</span>
+			<span class="separator">•</span>
+			<a href="credits.html" class="footer-link">Credits</a>
+		</div>
+	</footer>
+
+	<script defer src="./particles.js"></script>
 	<script async src="./scripts/script.js"></script>
 	<script defer src="./scripts/sub.js"></script>
-</body>
-
-</html>
-<!doctype html>
-
-
-
-
-<script>
-	// Custom Context Menu Logic is now in script.js to be cleaner
-	// Document Keydown to prevent F12 is still optional if you want to keep it,
-	// but removing the alert makes it less annoying.
-</script>
-
-
-
-</!doctype>
-<footer class="site-footer">
-	<div class="footer-content">
-		<span>Updated on 21-01-2026</span>
-		<span class="separator">•</span>
-		<a href="credits.html" class="footer-link">Credits</a>
-	</div>
-</footer>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cube Loader</title>
-	<style>
-		/* --- Background & Body --- */
-		body {
-			margin: 0;
-			padding: 0;
-			background: #000000;
-			font-family: sans-serif;
-			overflow: hidden;
-			/* Prevent scroll during loader */
-		}
-
-		/* --- Fullscreen Loader Overlay --- */
-		.loader-overlay {
-			position: fixed;
-			inset: 0;
-			background: #000000;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 9999;
-		}
-
-		/* --- Cube Loader Animation --- */
-		.cubesWrapper {
-			position: relative;
-			width: 52px;
-			height: 52px;
-		}
-
-		.cube {
-			background-color: #7289da;
-			width: 10px;
-			height: 10px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			animation: cubeSpinner 1.8s ease-in-out infinite;
-		}
-
-		.cube:last-child {
-			animation-delay: -0.9s;
-		}
-
-		@keyframes cubeSpinner {
-			25% {
-				transform: translateX(22px) rotate(-90deg) scale(0.5);
-			}
-
-			50% {
-				transform: translateX(22px) translateY(22px) rotate(-180deg);
-			}
-
-			75% {
-				transform: translateX(0) translateY(22px) rotate(-270deg) scale(0.5);
-			}
-
-			to {
-				transform: rotate(-1turn);
-			}
-		}
-
-		/* --- Hide loader smoothly --- */
-		.fade-out {
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.8s ease, visibility 0.8s ease;
-		}
-
-		/* --- Main content (hidden initially) --- */
-		.main-content {
-			display: none;
-			text-align: center;
-			color: white;
-			margin-top: 20vh;
-		}
-	</style>
-</head>
-
-<body>
-
-	<!-- Loader -->
-	<div class="loader-overlay" id="loader">
-		<span class="cubesWrapper">
-			<span class="cube"></span>
-			<span class="cube"></span>
-		</span>
-	</div>
-
-	<!-- Your Site Content -->
-
-	<script>
-		// Wait 5 seconds then hide loader
-		window.addEventListener('load', () => {
-			setTimeout(() => {
-				const loader = document.getElementById('loader');
-				loader.classList.add('fade-out');
-
-				// Show main content
-				document.getElementById('content').style.display = 'block';
-
-				// Optional: enable scrolling again
-				document.body.style.overflow = 'auto';
-			}, 5000);
-		});
-	</script>
-
 </body>
 
 </html>
