@@ -728,7 +728,7 @@ a:hover.tooltip::after {
   border-color: #111111 !important;
 }
 
-/* Text → white */
+/* Text â†’ white */
 * {
   --text-color: #ffffff;
 }
@@ -926,3 +926,10 @@ a:hover.tooltip::after {
     text-overflow: ellipsis;
     line-height: 1.2;
 }
+
+.activity-timestamp {
+  color: #b9bbbe;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
