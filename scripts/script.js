@@ -270,8 +270,26 @@ function viewSource() {
 
 function copyUserID() {
 	navigator.clipboard.writeText(userID).then(() => {
-		alert("User ID copied to clipboard!");
+		discordAlert("User ID copied to clipboard!");
 	});
 }
+
+function discordAlert(msg) {
+	const overlay = document.getElementById("discord-alert");
+	const msgBox = document.getElementById("discord-alert-msg");
+	msgBox.innerText = msg;
+	overlay.style.display = "flex";
+}
+
+function closeDiscordAlert() {
+	document.getElementById("discord-alert").style.display = "none";
+}
+
+// Close alert on click outside
+document.getElementById("discord-alert").addEventListener("click", (e) => {
+	if (e.target.id === "discord-alert") {
+		closeDiscordAlert();
+	}
+});
 
 
