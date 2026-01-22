@@ -182,9 +182,11 @@ function updateStatus(lanyardData) {
 
 			// Fallback if no image set
 			if (!largeImageSet) {
-				// Use the SVG data URI for a "Discord Unknown Game" lookalike (a simple controller or question mark)
-				elements.activityLargeImage.src = "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/unknown.png";
-				// A reliable URL from a popular VSCode extension for Discord
+				// Use the local icon we just downloaded
+				elements.activityLargeImage.src = "./public/unknown.png";
+				elements.activityLargeImage.onerror = () => {
+					elements.activityLargeImage.src = "https://cdn.discordapp.com/embed/avatars/0.png"; // Ultimate fallback
+				};
 			}
 
 			if (richActivity.assets?.small_image) {
@@ -199,16 +201,15 @@ function updateStatus(lanyardData) {
 				elements.activityTimestamp.style.display = "block";
 				const start = richActivity.timestamps.start;
 
-				window.activityInterval = setInterval(() => {
+				const updateGameTimer = () => {
 					const now = Date.now();
 					const elapsed = now - start;
-					elements.activityTimestamp.innerText = `${formatTime(elapsed)} elapsed`;
-				}, 1000);
+					// Add the Gamepad icon from FontAwesome
+					elements.activityTimestamp.innerHTML = `<i class="fas fa-gamepad" style="margin-right: 5px;"></i> ${formatTime(elapsed)} elapsed`;
+				};
 
-				// Immediate initial
-				const now = Date.now();
-				const elapsed = now - start;
-				elements.activityTimestamp.innerText = `${formatTime(elapsed)} elapsed`;
+				window.activityInterval = setInterval(updateGameTimer, 1000);
+				updateGameTimer(); // Run once immediately
 			}
 		}
 	} else {
