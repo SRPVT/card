@@ -1,327 +1,419 @@
-<!DOCTYPE html>
+
+<!DOCTYPE >
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Dscbmr.is-a.dev | dscbmr.is-a.dev" />
-	<meta property="og:description" content="dscbmr.is-a.dev| dscbmr.is-a.dev" />
-	<meta property="og:title" content="Bmr" />
-	<meta property="og:image" content="" />
-	<meta property="og:type" content="website" />
-	<link rel="canonical" href="https://srpvt.github.io/" />
-	<meta property="og:site_name" content="@bmr.tt69" />
-	<meta name="keywords" content="Bmr,skibidi,sigma,ohio" />
-	<meta property="og:image" content="public/get (2).jpg" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="language" content="English" />
-	<meta name="author" content="bmr" />
-	<meta name="view-transition" content="same-origin" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet" />
-	<link rel="icon" href="public/niger0.jpg" />
-	<link rel="stylesheet" href="./styles/style.css" />
-	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" crossorigin />
-	<title>BMR</title>
-
-	<style>
-		/* --- Footer Date Styles --- */
-		.footer-date {
-			position: fixed;
-			bottom: 20px;
-			left: 50%;
-			transform: translateX(-50%);
-			font-size: 0.8rem;
-			color: rgba(255, 255, 255, 0.7);
-			text-align: center;
-			z-index: 1000;
-			font-family: 'Playpen Sans', cursive;
-			background: rgba(0, 0, 0, 0.4);
-			padding: 8px 16px;
-			border-radius: 20px;
-			backdrop-filter: blur(4px);
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			transition: all 0.3s ease;
-		}
-
-		.footer-date:hover {
-			background: rgba(0, 0, 0, 0.8);
-			color: #fff;
-			border-color: rgba(255, 255, 255, 0.3);
-		}
-
-		.footer-date a {
-			color: inherit;
-			text-decoration: none;
-			font-weight: 600;
-			margin-left: 5px;
-		}
-
-		.footer-date a:hover {
-			text-decoration: underline;
-			text-underline-offset: 4px;
-		}
-
-		/* --- Cube Loader Animation --- */
-		.loader-overlay {
-			position: fixed;
-			inset: 0;
-			background: #36393f;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 9999;
-		}
-
-		.cubesWrapper {
-			position: relative;
-			width: 52px;
-			height: 52px;
-		}
-
-		.cube {
-			background-color: #7289da;
-			width: 10px;
-			height: 10px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			animation: cubeSpinner 1.8s ease-in-out infinite;
-		}
-
-		.cube:last-child {
-			animation-delay: -0.9s;
-		}
-
-		@keyframes cubeSpinner {
-			25% {
-				transform: translateX(22px) rotate(-90deg) scale(0.5);
-			}
-
-			50% {
-				transform: translateX(22px) translateY(22px) rotate(-180deg);
-			}
-
-			75% {
-				transform: translateX(0) translateY(22px) rotate(-270deg) scale(0.5);
-			}
-
-			to {
-				transform: rotate(-1turn);
-			}
-		}
-
-		/* --- Hide loader smoothly --- */
-		.fade-out {
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.8s ease, visibility 0.8s ease;
-		}
-	</style>
-</head>
-
-<body oncontextmenu="return true;" style="background-color: #000000;">
-
-	<!-- Loader -->
-	<div class="loader-overlay" id="loader">
-		<span class="cubesWrapper">
-			<span class="cube"></span>
-			<span class="cube"></span>
-		</span>
-	</div>
-
-	<div class="container">
-		<div class="profile-border box-color">
-			<div class="profile box-color">
-				<div class="banner">
-					<img loading="lazy" id="banner-image" src="public/38458-black-cherry-banner.jpg" alt="" />
-				</div>
-				<div class="main-header">
-					<div class="image">
-						<div class="avatar">
-							<img loading="lazy" class="box-color" id="avatar-image" alt="" aria-hidden="true"
-								src="public/get (2).jpg" />
-							<img loading="lazy" class="avatar-decoration"
-								src="https://cdn.discordapp.com/avatar-decoration-presets/a_26f13552ff23d9d5b3204d1934245764.png?size=96&passthrough=true"
-								alt="" />
-							<div class="status box-color tooltip">
-								<img id="status-image" src="./public/status/offline.svg" alt="" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Dscbmr.is-a.dev | dscbmr.is-a.dev" />
+		<meta property="og:description" content="dscbmr.is-a.dev| dscbmr.is-a.dev" />
+		<meta property="og:title" content="Bmr" />
+		<meta property="og:image" content="" />
+		<meta property="og:type" content="website" />
+		<link rel="canonical" href="https://srpvt.github.io/" />
+		<meta property="og:site_name" content="@bmr.tt69" />
+		<meta
+			name="keywords"
+			content="Bmr,skibidi,sigma,ohio" />
+		<meta
+			property="og:image"
+			content="public/get (2).jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="language" content="English" />
+		<meta name="author" content="bmr" />
+		<meta name="view-transition" content="same-origin" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap"
+			rel="stylesheet" />
+		<link rel="icon" href="public/niger0.jpg" />
+		<link rel="stylesheet" href="./styles/style.css" />
+		<link
+			href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+			rel="stylesheet"
+			crossorigin />
+		<title>BMR</title>
+	</head>
+	<body oncontextmenu="return true;">
+		<div class="container">
+			<div class="profile-border box-color">
+				<div class="profile box-color">
+					<div class="banner">
+						<img
+							loading="lazy"
+							id="banner-image"
+							src="public/38458-black-cherry-banner.jpg"
+							alt="" />
+					</div>
+					<div class="main-header">
+						<div class="image">
+							<div class="avatar">
+								<img
+									loading="lazy"
+									class="box-color"
+									id="avatar-image"
+									alt=""
+									aria-hidden="true"
+									src="public/get (2).jpg" />
+								<img
+									loading="lazy"
+									class="avatar-decoration"
+									src="https://cdn.discordapp.com/avatar-decoration-presets/a_26f13552ff23d9d5b3204d1934245764.png?size=96&passthrough=true"
+									alt="" />
+								<div class="status box-color tooltip">
+									<img
+										id="status-image"
+										src="./public/status/offline.svg"
+										alt="" />
+								</div>
+							</div>
+							<!-- </button> -->
+						</div>
+						<div class="badges box-color" id="badges">
+							<div class="badges-right">
+								<a class="tooltip" aria-label="Subscriber since Dec 13,2025">
+									<img alt=" " src="public/bronze.png"
+										/></a>
+								<a class="tooltip" aria-label="HypeSquad Brilliance">
+									<img alt=" " src="./public/badges/hypesquad-brilliance.svg"
+								/></a>
+						
+								<a class="tooltip" aria-label="Server boosting since Dec 13 2025">
+									<img alt=" " src="./public/badges/boost-1-month.svg"
+								/></a>
+								
+								<a
+									class="tooltip"
+									aria-label="Completed a Quest">
+									<img alt=" " src="public/badges/quest completion badge.png"
+								/></a>
+								<a class="tooltip" aria-label="ORBS APPRENTICE">
+									<img alt=" " src="public/OrbsApprentice.png"
+										/></a>
+							</div>
+							<div class="badges-left"></div>
+							<!-- badges list-->
+							<!-- -->
+						</div>
+					</div>
+					<div class="card box-color">
+						<div class="name-box">
+							<span class="display-name">R</span>
+							<button
+								class="id username"
+								id="textToCopy"
+								aria-label="Click to copy!"
+								onclick="copyToClipboard()"></button>
+							<span class="pronouns"></span>
+							<div class="custom-status">
+								<img id="custom-status-emoji" />
+								<p class="custom-status-text"></p>
 							</div>
 						</div>
-						<!-- </button> -->
-					</div>
-					<div class="badges box-color" id="badges">
-						<div class="badges-right">
-							<a class="tooltip" aria-label="Subscriber since Dec 13,2025">
-								<img alt=" " src="public/bronze.png" /></a>
-							<a class="tooltip" aria-label="HypeSquad Brilliance">
-								<img alt=" " src="./public/badges/hypesquad-brilliance.svg" /></a>
-
-							<a class="tooltip" aria-label="Server boosting since Dec 13 2025">
-								<img alt=" " src="./public/badges/boost-1-month.svg" /></a>
-
-							<a class="tooltip" aria-label="Completed a Quest">
-								<img alt=" " src="public/badges/quest completion badge.png" /></a>
-							<a class="tooltip" aria-label="ORBS APPRENTICE">
-								<img alt=" " src="public/OrbsApprentice.png" /></a>
-						</div>
-						<div class="badges-left"></div>
-						<!-- badges list-->
-						<!-- -->
-					</div>
-				</div>
-				<div class="card box-color">
-					<div class="name-box">
-						<span class="display-name">R</span>
-						<button class="id username" id="textToCopy" aria-label="Click to copy!"
-							onclick="copyToClipboard()"></button>
-						<span class="pronouns"></span>
-						<div class="custom-status">
-							<img id="custom-status-emoji" />
-							<p class="custom-status-text"></p>
-						</div>
-					</div>
-					<div class="body">
-						<div class="content">
-							<div class="about-section">
-								<div class="title-body">ABOUT ME</div>
-								<!-- text -->
-								<span class="about-me">
-									<div class="flag">
-										<img src="public/blurryeyes.png" />
+						<div class="body">
+							<div class="content">
+								<div class="about-section">
+									<div class="title-body">ABOUT ME</div>
+									<!-- text -->
+									<span class="about-me"
+										>
+										<div class="flag">
+											<img
+												src="public/blurryeyes.png" />
+										</div>
+										
+										
+								</div>
+										
+								<div class="title-body">ROLES</div>
+								<div class="roles-body">
+									<!-- roles list -->
+									<div class="rol rosepink">
+										<i class="fas fa-circle"></i>
+										<span>SKIBIDI</span>
 									</div>
-							</div>
+									<div class="rol softpink">
+										<i class="fas fa-circle"></i>
+										<span>Weeb Developer</span>
+									</div>
+									<div class="rol green">
+										<i class="fas fa-circle"></i>
+										<span>EDITOR</span>
+									</div>
+									<div class="rol blue">
+										<i class="fas fa-circle"></i>
+										<span>MECH Student</span>
+									</div>
+									<!-- -->
+								</div>
+								<div class="divider social-divider"></div>
+								<div class="title-body">CONNECTIONS</div>
 
-							<div class="title-body">ROLES</div>
-							<div class="roles-body">
-								<!-- roles list -->
-								<div class="rol rosepink">
-									<i class="fas fa-circle"></i>
-									<span>SKIBIDI</span>
+								<div class="socials">
+									<!-- social list -->
+									<div class="column">
+										<a
+											class="platform"
+											href="https://sussyrayan.is-a.dev/"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbXDvNdq-lNCnNZmzxvxYam0b19UlAUGa_Kb1HOTsjua1HJNSLPrAZIGConm46JYgN4xXH03Zgp52KYJbidC8wPU1GV7-U7dbmHENFvAZcdQHO04cvoSMGFgd3IoSD4fde4tMoecdHxdlnuYyjIAylVd9DCfgIeKmQxKc561IbbJ5jFI7iuVfTi0Rhfa2J/s980/stylish-capital-letter-logo-free-photo%20%284%29.jpg" />
+											<div class="text-base platform-username">
+												Portfolio
+											</div>
+											<div>
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+										<a
+											class="platform"
+											href="https://youtube.com/@bmreditz-1?si=1kdm4IKXqWVh-__j"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="public/platforms/youtube.svg" />
+											<div class="text-base platform-username">Youtube</div>
+											<div
+												href="https://youtube.com/@bmreditz-1?si=1kdm4IKXqWVh-__j"
+												rel="noreferrer noopener"
+												target="_blank">
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+									</div>
+									<div class="column">
+										<a
+											class="platform"
+											href="https://www.instagram.com/bmr.tt1/"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj08HbWN9tHo_48GCV8q09VcZE5yHN3DlKWaS9d4Rut02CVxpu1SZCziHa-JJfKT47-FVboDKS1ph4Ms2Ldtg5eWmeU8l_9ZyDykdH_7x6pP9A-i6pXF_h3RuQia71dICGWn-2KYSPVw3yMKPWJCWnA7BrGa0SSBTUU8vrUWV-emYWrYeqzmJ0nuj2IroVV/s360/pngtree-instagram-icon-png-image_6315974.png" />
+											<div class="text-base platform-username">
+												bmr.tt1
+											</div>
+											<div>
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+										<a
+											class="platform"
+											href="https://discord.gg/cmSmTqCEyn"
+											rel="noreferrer noopener"
+											target="_blank">
+											<img
+												class="platform-icon"
+												alt=" "
+												aria-hidden="true"
+												src="./public/platforms/discord.svg" />
+											<div class="text-base platform-username">
+												Discord server
+											</div>
+											<div class="">
+												<img
+													alt=" "
+													id="link"
+													aria-hidden="true"
+													src="./public/icons/link.svg"
+													class="connect" />
+											</div>
+										</a>
+									</div>
+									<!-- -->
 								</div>
-								<div class="rol softpink">
-									<i class="fas fa-circle"></i>
-									<span>Weeb Developer</span>
+								<div class="chat-container">
+									<input
+										type="text"
+										id="message-input"
+										placeholder="Message @BMR.EZ" />
 								</div>
-								<div class="rol green">
-									<i class="fas fa-circle"></i>
-									<span>EDITOR</span>
-								</div>
-								<div class="rol blue">
-									<i class="fas fa-circle"></i>
-									<span>MECH Student</span>
-								</div>
-								<!-- -->
-							</div>
-							<div class="divider social-divider"></div>
-							<div class="title-body">CONNECTIONS</div>
-
-							<div class="socials">
-								<!-- social list -->
-								<div class="column">
-									<a class="platform" href="https://sussyrayan.is-a.dev/" rel="noreferrer noopener"
-										target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true"
-											src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbXDvNdq-lNCnNZmzxvxYam0b19UlAUGa_Kb1HOTsjua1HJNSLPrAZIGConm46JYgN4xXH03Zgp52KYJbidC8wPU1GV7-U7dbmHENFvAZcdQHO04cvoSMGFgd3IoSD4fde4tMoecdHxdlnuYyjIAylVd9DCfgIeKmQxKc561IbbJ5jFI7iuVfTi0Rhfa2J/s980/stylish-capital-letter-logo-free-photo%20%284%29.jpg" />
-										<div class="text-base platform-username">
-											Portfolio
-										</div>
-										<div>
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg"
-												class="connect" />
-										</div>
-									</a>
-									<a class="platform" href="https://youtube.com/@bmreditz-1?si=1kdm4IKXqWVh-__j"
-										rel="noreferrer noopener" target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true"
-											src="public/platforms/youtube.svg" />
-										<div class="text-base platform-username">Youtube</div>
-										<div href="https://youtube.com/@bmreditz-1?si=1kdm4IKXqWVh-__j"
-											rel="noreferrer noopener" target="_blank">
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg"
-												class="connect" />
-										</div>
-									</a>
-								</div>
-								<div class="column">
-									<a class="platform" href="https://www.instagram.com/bmr.tt1/"
-										rel="noreferrer noopener" target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true"
-											src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj08HbWN9tHo_48GCV8q09VcZE5yHN3DlKWaS9d4Rut02CVxpu1SZCziHa-JJfKT47-FVboDKS1ph4Ms2Ldtg5eWmeU8l_9ZyDykdH_7x6pP9A-i6pXF_h3RuQia71dICGWn-2KYSPVw3yMKPWJCWnA7BrGa0SSBTUU8vrUWV-emYWrYeqzmJ0nuj2IroVV/s360/pngtree-instagram-icon-png-image_6315974.png" />
-										<div class="text-base platform-username">
-											bmr.tt1
-										</div>
-										<div>
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg"
-												class="connect" />
-										</div>
-									</a>
-									<a class="platform" href="https://discord.gg/cmSmTqCEyn" rel="noreferrer noopener"
-										target="_blank">
-										<img class="platform-icon" alt=" " aria-hidden="true"
-											src="./public/platforms/discord.svg" />
-										<div class="text-base platform-username">
-											Discord server
-										</div>
-										<div class="">
-											<img alt=" " id="link" aria-hidden="true" src="./public/icons/link.svg"
-												class="connect" />
-										</div>
-									</a>
-								</div>
-								<!-- -->
-							</div>
-							<div class="chat-container">
-								<input type="text" id="message-input" placeholder="Message @BMR.EZ" />
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<script async src="./scripts/script.js"></script>
+		<script defer src="./scripts/sub.js"></script>
+	</body>
+</html>
+<!doctype html>
 
-	<!-- Footer Date -->
-	<div class="footer-date">
-		Updated on 21-01-2026 | <a href="credits.html">Credits</a>
-	</div>
 
-	<!-- Scripts -->
-	<script async src="./scripts/script.js"></script>
-	<script defer src="./scripts/sub.js"></script>
-	<script src="./scripts/particles.js"></script>
+    
+    
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            alert('Inspecting is not allowed.');
+        });
 
-	<!-- Anti-Inspect Script -->
-	<script>
-		document.addEventListener('contextmenu', function (event) {
-			event.preventDefault();
-			alert('Inspecting is not allowed.');
-		});
-		document.addEventListener('keydown', function (event) {
-			if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
-				alert('Inspecting is not allowed.');
-				event.preventDefault();
-			}
-		});
-	</script>
+        // Optionally, detect F12 key or Ctrl+Shift+I
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                alert('Inspecting is not allowed.');
+                event.preventDefault();
+            }
+        });
+    </script>
 
-	<!-- Loader Script -->
-	<script>
-		window.addEventListener('load', () => {
-			setTimeout(() => {
-				const loader = document.getElementById('loader');
-				if (loader) {
-					loader.classList.add('fade-out');
-					// Remove from DOM after fade to prevent clicks blocking
-					setTimeout(() => {
-						loader.style.display = 'none';
-					}, 800);
-				}
-				document.body.style.overflow = 'auto';
-			}, 2500); // Reduced to 2.5s for better UX, 5s is too long
-		});
-	</script>
+
+
+</!doctype>
+<!-- Footer Date -->
+<div class="footer-date">Updated on 21-01-2026</div>
+
+<style>
+  .footer-date {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #ffffff;
+    text-align: center;
+    z-index: 9999;
+    font-family: sans-serif;
+    pointer-events: none;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 6px #fff,
+      0 0 8px #fff;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cube Loader</title>
+<style>
+  /* --- Background & Body --- */
+  body {
+    margin: 0;
+    padding: 0;
+    background: #36393f;
+    font-family: sans-serif;
+    overflow: hidden; /* Prevent scroll during loader */
+  }
+
+  /* --- Fullscreen Loader Overlay --- */
+  .loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: #36393f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* --- Cube Loader Animation --- */
+  .cubesWrapper {
+    position: relative;
+    width: 52px;
+    height: 52px;
+  }
+
+  .cube {
+    background-color: #7289da;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: cubeSpinner 1.8s ease-in-out infinite;
+  }
+
+  .cube:last-child {
+    animation-delay: -0.9s;
+  }
+
+  @keyframes cubeSpinner {
+    25% {
+      transform: translateX(22px) rotate(-90deg) scale(0.5);
+    }
+    50% {
+      transform: translateX(22px) translateY(22px) rotate(-180deg);
+    }
+    75% {
+      transform: translateX(0) translateY(22px) rotate(-270deg) scale(0.5);
+    }
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+
+  /* --- Hide loader smoothly --- */
+  .fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  /* --- Main content (hidden initially) --- */
+  .main-content {
+    display: none;
+    text-align: center;
+    color: white;
+    margin-top: 20vh;
+  }
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader-overlay" id="loader">
+  <span class="cubesWrapper">
+    <span class="cube"></span>
+    <span class="cube"></span>
+  </span>
+</div>
+
+<!-- Your Site Content -->
+
+<script>
+  // Wait 5 seconds then hide loader
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('fade-out');
+
+      // Show main content
+      document.getElementById('content').style.display = 'block';
+
+      // Optional: enable scrolling again
+      document.body.style.overflow = 'auto';
+    }, 5000);
+  });
+</script>
+
 </body>
-
 </html>
