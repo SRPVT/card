@@ -1095,24 +1095,73 @@ a:hover.tooltip::after {
 }
 
 /* ===============================
+   STATUS TOOLTIP (Simple Style)
+   =============================== */
+.status {
+  position: relative;
+  /* Ensure parent is relative for absolute positioning of tooltip */
+}
+
+/* Tooltip Body */
+.status:hover::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -8px);
+  /* Shift up slightly */
+  background-color: #111214;
+  /* Dark background like reference */
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip Arrow */
+.status:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 2px);
+  /* Position just touching the tooltip bottom */
+  border-width: 5px;
+  border-style: solid;
+  border-color: #111214 transparent transparent transparent;
+  /* Arrow pointing down */
+  z-index: 1000;
+  pointer-events: none;
+  margin-bottom: -10px;
+  /* Adjust to connect with tooltip */
+}
+
+
+/* ===============================
    SITE FOOTER
    =============================== */
 .site-footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
-  background-color: transparent;
-  border-top: none;
-  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent dark pill */
+  padding: 8px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9998;
-  border-radius: 20px;
-  backdrop-filter: blur(2px);
-  /* Optional: faint background for readability if needed, or pure transparent */
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
