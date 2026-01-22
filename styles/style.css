@@ -1099,17 +1099,20 @@ a:hover.tooltip::after {
    =============================== */
 .site-footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000000;
-  border-top: 1px solid #1a1a1a;
-  padding: 10px 0;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  background-color: transparent;
+  border-top: none;
+  padding: 5px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9998;
-  /* Below tooltip (99999) and alert (20000) but above content */
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+  /* Optional: faint background for readability if needed, or pure transparent */
 }
 
 .footer-content {
