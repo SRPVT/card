@@ -79,7 +79,10 @@
 
 .id,
 body {
-  margin: 0
+  margin: 0;
+  background-color: #000000;
+  /* Force black background */
+  overflow-x: hidden;
 }
 
 html {
