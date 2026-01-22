@@ -11,6 +11,7 @@ canvas.style.width = "100%";
 canvas.style.height = "100%";
 canvas.style.zIndex = "-1";
 canvas.style.pointerEvents = "none";
+canvas.style.background = "#050505"; /* Deep space black */
 
 // Resize canvas
 function resizeCanvas() {
@@ -91,7 +92,7 @@ class Particle {
                 this.y -= 2;
             }
         }
-        
+
         this.draw();
     }
 }
@@ -112,7 +113,7 @@ function animate() {
     for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
     }
-    
+
     // Draw lines between nearby particles
     connect();
 }
@@ -121,8 +122,8 @@ function connect() {
     let opacityValue = 1;
     for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
-            let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
-                           ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+            let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
             if (distance < (canvas.width / 7) * (canvas.height / 7)) {
                 opacityValue = 1 - (distance / 20000);
                 if (opacityValue > 0) {
