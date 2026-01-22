@@ -290,62 +290,6 @@ function copyUserID() {
 	});
 }
 
-/* ===============================
-   MESSAGE SYSTEM (WEBHOOK)
-   =============================== */
-const messageInput = document.getElementById("message-input");
-// REPLACE THIS WITH YOUR ACTUAL WEBHOOK URL
-const WEBHOOK_URL = "https://ptb.discord.com/api/webhooks/1463850156460871791/K9_5OUL43OEmHwqb5kZysSCVNz6PAluXzSsXjUeFdXMN0LNooGYRchPFCtGJIRH9Obeb";
-
-messageInput.addEventListener("keypress", (e) => {
-	if (e.key === "Enter") {
-		const message = messageInput.value.trim();
-		if (message.length > 0) {
-			sendMessage(message);
-		}
-	}
-});
-
-function sendMessage(content) {
-	if (!WEBHOOK_URL) {
-		discordAlert("Error: Webhook URL not configured in script.js!");
-		return;
-	}
-
-	const originalPlaceholder = messageInput.placeholder;
-	messageInput.disabled = true;
-	messageInput.placeholder = "Sending...";
-	messageInput.value = "";
-
-	fetch(WEBHOOK_URL, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			content: `**New Message from Site:**\n${content}`
-		})
-	})
-		.then(response => {
-			if (response.ok) {
-				messageInput.placeholder = "Message Sent!";
-				setTimeout(() => {
-					messageInput.disabled = false;
-					messageInput.placeholder = originalPlaceholder;
-				}, 2000);
-			} else {
-				throw new Error("Failed to send");
-			}
-		})
-		.catch(error => {
-			console.error("Webhook Error:", error);
-			messageInput.placeholder = "Error sending message";
-			setTimeout(() => {
-				messageInput.disabled = false;
-				messageInput.placeholder = originalPlaceholder;
-			}, 2000);
-		});
-}
 function discordAlert(msg) {
 	const overlay = document.getElementById("discord-alert");
 	const msgBox = document.getElementById("discord-alert-msg");
