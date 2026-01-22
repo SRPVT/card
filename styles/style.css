@@ -592,13 +592,12 @@ a:hover.tooltip::after {
   display: flex;
   width: 20px;
   height: 20px;
-  -webkit-filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%);
-  filter: invert(86%) sepia(5%) saturate(136%) hue-rotate(177deg) brightness(70%) contrast(70%)
+  -webkit-filter: invert(100%);
+  filter: invert(100%)
 }
 
 .connect:hover {
-  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%);
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(0%) contrast(0%)
+  opacity: 0.8;
 }
 
 .softpink {
