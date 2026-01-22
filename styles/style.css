@@ -107,22 +107,11 @@ body {
 }
 
 .container {
-  display: flex;
-  /* Ensure it is a flex container */
-  flex-direction: column;
-  /* Stack vertically */
   position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
-  /* Use min-height to ensure it covers at least the viewport */
-  height: auto;
-  /* Allow it to grow */
-  padding: 50px 0;
-  /* Add padding to top/bottom */
-  overflow-y: auto;
-  /* Ensure scrolling is allowed if needed, though body handles main scroll */
+  height: 100vh
 }
 
 .container::before {
@@ -147,8 +136,7 @@ body {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, .1);
   padding: 5px;
   flex-direction: column;
-  height: auto;
-  max-height: none;
+  max-height: calc(100% - 100px)
 }
 
 .chat-container,
@@ -165,8 +153,7 @@ body {
   --primary-s-bottom: 47%;
   --primary-l-bottom: 78%;
   width: 600px;
-  height: auto;
-  max-height: none;
+  max-height: calc(100vh - 100px)
 }
 
 .avatar,
@@ -240,9 +227,7 @@ body {
 
 .body,
 .content {
-  height: auto;
-  max-height: none;
-  overflow: visible;
+  max-height: calc(100vh - 530px)
 }
 
 .id::after,
@@ -638,32 +623,16 @@ a:hover.tooltip::after {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  border-radius: 5px;
-  display: flex !important;
+  display: none !important
 }
 
 #message-input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #2f3136;
-  border-radius: 4px;
-  background-color: #202225;
-  color: #dcddde;
-  outline: none;
-  font-size: 14px;
-  font-family: inherit;
-  transition: border-color 0.2s;
-}
-
-#message-input:focus {
-  border-color: #5865f2;
-}
-
-.chat-container {
-  margin-top: 20px;
-  /* Space from connections */
-  padding: 0;
-  /* Remove padding if handled by input styling or keep it */
+  padding: 5px;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+  font-weight: 500
 }
 
 @media (width <=640px) {
@@ -1178,34 +1147,27 @@ a:hover.tooltip::after {
    SITE FOOTER
    =============================== */
 .site-footer {
-  position: relative;
-  margin-top: -10px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   width: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 6px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent dark pill */
+  padding: 8px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
-  border-radius: 20px;
+  z-index: 9998;
+  border-radius: 50px;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-bottom: 20px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
   display: flex;
-  flex-direction: column;
-  /* Stack card and footer */
-  gap: 10px;
-  /* Space between card and footer */
+  gap: 15px;
   align-items: center;
   font-size: 12px;
   color: #b9bbbe;
