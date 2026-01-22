@@ -107,14 +107,22 @@ body {
 }
 
 .container {
+  display: flex;
+  /* Ensure it is a flex container */
+  flex-direction: column;
+  /* Stack vertically */
   position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  /* Changed from height: 100vh to allow scrolling */
+  /* Use min-height to ensure it covers at least the viewport */
+  height: auto;
+  /* Allow it to grow */
   padding: 50px 0;
   /* Add padding to top/bottom */
+  overflow-y: auto;
+  /* Ensure scrolling is allowed if needed, though body handles main scroll */
 }
 
 .container::before {
