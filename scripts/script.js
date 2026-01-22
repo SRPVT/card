@@ -42,6 +42,15 @@ function startWebSocket() {
 	};
 }
 
+// Initial Fetch for faster update
+fetch(`https://api.lanyard.rest/v1/users/${userID}`)
+	.then(res => res.json())
+	.then(response => {
+		if (response.success && response.data) {
+			updateStatus(response.data);
+		}
+	});
+
 function updateStatus(lanyardData) {
 	const { discord_status, activities, discord_user } = lanyardData;
 
@@ -77,8 +86,6 @@ function updateStatus(lanyardData) {
 
 	elements.statusImage.src = imagePath;
 	elements.statusBox.setAttribute("aria-label", label);
-	elements.statusBox.setAttribute("data-header", "Status");
-	elements.statusBox.setAttribute("data-name", label);
 
 	// -- CUSTOM STATUS (The text under name) --
 	const custom = activities.find((a) => a.type === 4);
