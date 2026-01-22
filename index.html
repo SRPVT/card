@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,9 +24,112 @@
 	<link rel="stylesheet" href="./styles/style.css" />
 	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" crossorigin />
 	<title>BMR</title>
+
+	<style>
+		/* --- Footer Date Styles --- */
+		.footer-date {
+			position: fixed;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 0.8rem;
+			color: rgba(255, 255, 255, 0.7);
+			text-align: center;
+			z-index: 1000;
+			font-family: 'Playpen Sans', cursive;
+			background: rgba(0, 0, 0, 0.4);
+			padding: 8px 16px;
+			border-radius: 20px;
+			backdrop-filter: blur(4px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			transition: all 0.3s ease;
+		}
+
+		.footer-date:hover {
+			background: rgba(0, 0, 0, 0.8);
+			color: #fff;
+			border-color: rgba(255, 255, 255, 0.3);
+		}
+
+		.footer-date a {
+			color: inherit;
+			text-decoration: none;
+			font-weight: 600;
+			margin-left: 5px;
+		}
+
+		.footer-date a:hover {
+			text-decoration: underline;
+			text-underline-offset: 4px;
+		}
+
+		/* --- Cube Loader Animation --- */
+		.loader-overlay {
+			position: fixed;
+			inset: 0;
+			background: #36393f;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 9999;
+		}
+
+		.cubesWrapper {
+			position: relative;
+			width: 52px;
+			height: 52px;
+		}
+
+		.cube {
+			background-color: #7289da;
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			animation: cubeSpinner 1.8s ease-in-out infinite;
+		}
+
+		.cube:last-child {
+			animation-delay: -0.9s;
+		}
+
+		@keyframes cubeSpinner {
+			25% {
+				transform: translateX(22px) rotate(-90deg) scale(0.5);
+			}
+
+			50% {
+				transform: translateX(22px) translateY(22px) rotate(-180deg);
+			}
+
+			75% {
+				transform: translateX(0) translateY(22px) rotate(-270deg) scale(0.5);
+			}
+
+			to {
+				transform: rotate(-1turn);
+			}
+		}
+
+		/* --- Hide loader smoothly --- */
+		.fade-out {
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.8s ease, visibility 0.8s ease;
+		}
+	</style>
 </head>
 
 <body oncontextmenu="return true;">
+
+	<!-- Loader -->
+	<div class="loader-overlay" id="loader">
+		<span class="cubesWrapper">
+			<span class="cube"></span>
+			<span class="cube"></span>
+		</span>
+	</div>
 
 	<div class="container">
 		<div class="profile-border box-color">
@@ -88,8 +191,6 @@
 									<div class="flag">
 										<img src="public/blurryeyes.png" />
 									</div>
-
-
 							</div>
 
 							<div class="title-body">ROLES</div>
@@ -180,191 +281,47 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Footer Date -->
+	<div class="footer-date">
+		Updated on 21-01-2026 | <a href="credits.html">Credits</a>
+	</div>
+
+	<!-- Scripts -->
 	<script async src="./scripts/script.js"></script>
 	<script defer src="./scripts/sub.js"></script>
 	<script src="./scripts/particles.js"></script>
-</body>
 
-</html>
-<!doctype html>
-
-
-
-
-<script>
-	document.addEventListener('contextmenu', function (event) {
-		event.preventDefault();
-		alert('Inspecting is not allowed.');
-	});
-
-	// Optionally, detect F12 key or Ctrl+Shift+I
-	document.addEventListener('keydown', function (event) {
-		if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
-			alert('Inspecting is not allowed.');
-			event.preventDefault();
-		}
-	});
-</script>
-
-
-
-</!doctype>
-<!-- Footer Date -->
-<div class="footer-date">
-	Updated on 21-01-2026 | <a href="credits.html">Credits</a>
-</div>
-
-<style>
-	.footer-date {
-		position: fixed;
-		bottom: 20px;
-		left: 50%;
-		transform: translateX(-50%);
-		font-size: 0.8rem;
-		color: rgba(255, 255, 255, 0.7);
-		text-align: center;
-		z-index: 1000;
-		font-family: 'Playpen Sans', cursive;
-		background: rgba(0, 0, 0, 0.4);
-		padding: 8px 16px;
-		border-radius: 20px;
-		backdrop-filter: blur(4px);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		transition: all 0.3s ease;
-	}
-
-	.footer-date:hover {
-		background: rgba(0, 0, 0, 0.8);
-		color: #fff;
-		border-color: rgba(255, 255, 255, 0.3);
-	}
-
-	.footer-date a {
-		color: inherit;
-		text-decoration: none;
-		font-weight: 600;
-		margin-left: 5px;
-	}
-
-	.footer-date a:hover {
-		text-decoration: underline;
-		text-underline-offset: 4px;
-	}
-</style>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cube Loader</title>
-	<style>
-		/* --- Background & Body --- */
-		body {
-			margin: 0;
-			padding: 0;
-			background: #36393f;
-			font-family: sans-serif;
-			overflow: hidden;
-			/* Prevent scroll during loader */
-		}
-
-		/* --- Fullscreen Loader Overlay --- */
-		.loader-overlay {
-			position: fixed;
-			inset: 0;
-			background: #36393f;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 9999;
-		}
-
-		/* --- Cube Loader Animation --- */
-		.cubesWrapper {
-			position: relative;
-			width: 52px;
-			height: 52px;
-		}
-
-		.cube {
-			background-color: #7289da;
-			width: 10px;
-			height: 10px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			animation: cubeSpinner 1.8s ease-in-out infinite;
-		}
-
-		.cube:last-child {
-			animation-delay: -0.9s;
-		}
-
-		@keyframes cubeSpinner {
-			25% {
-				transform: translateX(22px) rotate(-90deg) scale(0.5);
-			}
-
-			50% {
-				transform: translateX(22px) translateY(22px) rotate(-180deg);
-			}
-
-			75% {
-				transform: translateX(0) translateY(22px) rotate(-270deg) scale(0.5);
-			}
-
-			to {
-				transform: rotate(-1turn);
-			}
-		}
-
-		/* --- Hide loader smoothly --- */
-		.fade-out {
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.8s ease, visibility 0.8s ease;
-		}
-
-		/* --- Main content (hidden initially) --- */
-		.main-content {
-			display: none;
-			text-align: center;
-			color: white;
-			margin-top: 20vh;
-		}
-	</style>
-</head>
-
-<body>
-
-	<!-- Loader -->
-	<div class="loader-overlay" id="loader">
-		<span class="cubesWrapper">
-			<span class="cube"></span>
-			<span class="cube"></span>
-		</span>
-	</div>
-
-	<!-- Your Site Content -->
-
+	<!-- Anti-Inspect Script -->
 	<script>
-		// Wait 5 seconds then hide loader
-		window.addEventListener('load', () => {
-			setTimeout(() => {
-				const loader = document.getElementById('loader');
-				loader.classList.add('fade-out');
-
-				// Show main content
-				document.getElementById('content').style.display = 'block';
-
-				// Optional: enable scrolling again
-				document.body.style.overflow = 'auto';
-			}, 5000);
+		document.addEventListener('contextmenu', function (event) {
+			event.preventDefault();
+			alert('Inspecting is not allowed.');
+		});
+		document.addEventListener('keydown', function (event) {
+			if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+				alert('Inspecting is not allowed.');
+				event.preventDefault();
+			}
 		});
 	</script>
 
+	<!-- Loader Script -->
+	<script>
+		window.addEventListener('load', () => {
+			setTimeout(() => {
+				const loader = document.getElementById('loader');
+				if (loader) {
+					loader.classList.add('fade-out');
+					// Remove from DOM after fade to prevent clicks blocking
+					setTimeout(() => {
+						loader.style.display = 'none';
+					}, 800);
+				}
+				document.body.style.overflow = 'auto';
+			}, 2500); // Reduced to 2.5s for better UX, 5s is too long
+		});
+	</script>
 </body>
 
 </html>
