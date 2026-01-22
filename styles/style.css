@@ -1,5 +1,3 @@
-@import url('./background.css');
-
 .avatar,
 .badges,
 .badges .badges-right,
@@ -79,10 +77,7 @@
 
 .id,
 body {
-  margin: 0;
-  background-color: #000000;
-  /* Force black background */
-  overflow-x: hidden;
+  margin: 0
 }
 
 html {
@@ -113,7 +108,6 @@ body {
 
 .container {
   position: relative;
-  z-index: 10;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -122,7 +116,20 @@ body {
 
 .container::before {
   content: "";
-  display: none;
+  position: fixed;
+  margin: -15px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZoQ_cYmmOe98lZFSI2sj4UYX0y-RyqHcw_gdp6oXKrUP9VumpyiRPgnAvPzuLC99uWmTVWnfLR_M5e3PME1QVX3NJ0rWBfnHiF5gmqwMYZxfH6XfrZyc10hh7bJQ1XQY5vNVUEALJ6aJtSFXm20kv1KTdb4-1x42ojYEwVhrz76hZatppELzZaRuNXb8/s320/wp3770433-red-dead-redemption-2-4k-wallpapers.jpg");
+  background-repeat: no-repeat;
+  z-index: -1;
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, .5);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center
 }
 
 .profile-border {
@@ -702,7 +709,6 @@ a:hover.tooltip::after {
     opacity: 1
   }
 }
-
 /* ===============================
    FORCE PURE BLACK THE RIGHT WAY
    =============================== */
@@ -769,9 +775,9 @@ a:hover.tooltip::after {
    =============================== */
 
 .container::before {
-  display: none !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  filter: blur(8px);
 }
-
 /* ===============================
    WHITE OUTLINE FOR CARD
    =============================== */
