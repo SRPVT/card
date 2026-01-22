@@ -5,201 +5,271 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Get Source Code | BMR</title>
-    <meta name="description" content="Download the source code for this premium Discord-style profile card." />
 
-    <!-- Reusing site fonts and icons -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" crossorigin />
 
-    <!-- Reusing main styles for consistency (bg, fonts, etc) -->
-    <link rel="stylesheet" href="./styles/style.css" />
-
     <style>
-        /* Page Specific Styles */
-        .source-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .source-header h1 {
-            color: #ffffff;
-            margin: 0 0 10px 0;
-            font-family: "Playpen Sans", cursive;
-        }
-
-        .source-header p {
-            color: #b9bbbe;
+        /* --- RESET & BASE --- */
+        body {
             margin: 0;
-        }
-
-        .product-preview {
-            position: relative;
-            background: #111214;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid #1a1a1a;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .pill-badge {
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            background: #5865F2;
+            padding: 0;
+            background-color: #000;
+            font-family: 'Space Grotesk', sans-serif;
             color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.4);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            color: #dcddde;
-            font-size: 14px;
-        }
-
-        .feature-item i {
-            color: #57F287;
-            /* Green check style */
-            margin-right: 10px;
-            background: rgba(87, 242, 135, 0.1);
-            padding: 6px;
-            border-radius: 5px;
-            width: 16px;
-            height: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .btn-buy {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
-        }
-
-        .gumroad {
-            background-color: #ff90e8;
-            color: #000;
-            box-shadow: 0 0 15px rgba(255, 144, 232, 0.2);
-        }
-
-        .gumroad:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 144, 232, 0.4);
-        }
-
-        .patreon {
-            background-color: #FF424D;
-            color: #fff;
-        }
-
-        .patreon:hover {
-            background-color: #d6333d;
-        }
-
-        .back-home {
-            margin-top: 20px;
-            display: inline-block;
-            color: #7289da;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .back-home:hover {
-            text-decoration: underline;
-        }
-
-        /* Overriding container for this page to standard flex center */
-        .page-container {
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
         }
 
-        .source-card-wrapper {
+        /* --- BACKGROUND FX --- */
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(88, 101, 242, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- MAIN CARD --- */
+        .premium-card {
             width: 100%;
-            max-width: 480px;
+            max-width: 420px;
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* --- GLOW BORDER EFFECT --- */
+        .premium-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.8), transparent);
+        }
+
+        /* --- HEADER --- */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #8a8e94;
+            margin: 0;
+        }
+
+        /* --- PRICE TAG --- */
+        .price-tag {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            margin-bottom: 30px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .currency {
+            font-size: 24px;
+            color: #8a8e94;
+            margin-right: 5px;
+        }
+
+        .period {
+            font-size: 14px;
+            color: #8a8e94;
+            margin-left: 5px;
+        }
+
+        /* --- FEATURES LIST --- */
+        .features {
+            margin-bottom: 35px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #dcddde;
+        }
+
+        .feature i {
+            color: #5865F2;
+            /* Discord Blurple */
+            margin-right: 12px;
+            font-size: 14px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Primary Button (Gumroad) */
+        .btn-primary {
+            background: #5865F2;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: #4752c4;
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Secondary Button (Patreon) */
+        .btn-secondary {
+            background: rgba(255, 66, 77, 0.1);
+            color: #FF424D;
+            border: 1px solid rgba(255, 66, 77, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 66, 77, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Back Link */
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #72767d;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .back-link a:hover {
+            color: #fff;
+        }
+
+        /* --- RESPONISVE --- */
+        @media (max-width: 480px) {
+            .premium-card {
+                max-width: 90%;
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 
-<body oncontextmenu="return false;">
+<body>
 
-    <!-- Using the background wallpaper from style.css container -->
-    <div class="container" style="height: auto; min-height: 100vh; overflow-y: auto;">
-        <div class="source-card-wrapper">
-            <div class="profile-border box-color">
-                <div class="profile box-color"
-                    style="padding: 40px 30px; height: auto; align-items: stretch; width: 100%;">
+    <div class="bg-glow"></div>
 
-                    <div class="source-header">
-                        <h1>Premium Source Code</h1>
-                        <p>Get the fully functional version of this template.</p>
-                    </div>
+    <div class="premium-card">
+        <div class="header">
+            <h1>Ultimate Profile</h1>
+            <p>Live stats, music sync, & seamless aesthetic.</p>
+        </div>
 
-                    <div class="product-preview">
-                        <span class="pill-badge">LIFETIME ACCESS</span>
-                        <div class="features-grid">
-                            <div class="feature-item"><i class="fas fa-sync-alt"></i> <span>Live Lanyard Status</span>
-                            </div>
-                            <div class="feature-item"><i class="fab fa-spotify"></i> <span>Spotify Sync</span></div>
-                            <div class="feature-item"><i class="fas fa-paper-plane"></i> <span>Message Webhook</span>
-                            </div>
-                            <div class="feature-item"><i class="fas fa-mobile-alt"></i> <span>Mobile Responsive</span>
-                            </div>
-                            <div class="feature-item"><i class="fas fa-moon"></i> <span>Dark Mode UI</span></div>
-                            <div class="feature-item"><i class="fas fa-code"></i> <span>Clean Codebase</span></div>
-                        </div>
-                    </div>
+        <div class="price-tag">
+            <span class="currency">$</span>
+            <span class="price">5</span>
+            <span class="period">One-time payment</span>
+        </div>
 
-                    <div class="actions">
-                        <a href="https://gumroad.com/" target="_blank" class="btn-buy gumroad">
-                            <i class="fas fa-shopping-bag"></i> Buy on Gumroad ($5)
-                        </a>
-                        <a href="https://patreon.com/" target="_blank" class="btn-buy patreon">
-                            <i class="fab fa-patreon"></i> Support on Patreon
-                        </a>
-                    </div>
-
-                    <div style="text-align: center;">
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Profile</a>
-                    </div>
-
-                </div>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Full Source Code (HTML/CSS/JS)</span>
             </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <span>Real-time Discord Status (WebSocket)</span>
+            </div>
+            <div class="feature">
+                <i class="fab fa-spotify"></i>
+                <span>Live Spotify Music Sync</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-comment-alt"></i>
+                <span>Functional Message Webhook</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-magic"></i>
+                <span>Premium Glassmorphism UI</span>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="https://gumroad.com/" target="_blank" class="btn btn-primary">
+                <i class="fas fa-shopping-bag"></i> Get Source Code
+            </a>
+            <a href="https://patreon.com/" target="_blank" class="btn btn-secondary">
+                <i class="fab fa-patreon"></i> Support on Patreon
+            </a>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">No thanks, take me back</a>
         </div>
     </div>
 
