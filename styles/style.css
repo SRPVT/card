@@ -803,6 +803,7 @@ a:hover.tooltip::after {
    CONTEXT MENU 
    =============================== */
 .context-menu {
+  min-width: 220px;
     position: fixed;
     z-index: 10000;
     width: 180px;
@@ -1004,5 +1005,76 @@ a:hover.tooltip::after {
 @keyframes scaleIn {
     from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+
+
+/* ===============================
+   CUSTOM RICH TOOLTIP
+   =============================== */
+.custom-tooltip {
+    position: fixed;
+    z-index: 99999;
+    background-color: #111214;
+    border-radius: 8px;
+    padding: 12px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    min-width: 140px;
+    transform: translate(-50%, -100%);
+    margin-top: -15px; /* Shift up slightly so it's above cursor */
+}
+
+/* Triangle pointer at the bottom */
+.custom-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: #111214 transparent transparent transparent;
+}
+
+.custom-tooltip img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 4px;
+    opacity: 1 !important;
+    animation: none !important;
+}
+
+.tooltip-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#tooltip-header {
+    color: #b9bbbe;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+#tooltip-name {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* Remove old tooltip styles */
+.tooltip::after, .tooltip::before {
+    display: none !important;
+}
+.tooltip:hover::after, .tooltip:hover::before {
+    display: none !important;
 }
 
