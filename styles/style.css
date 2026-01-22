@@ -963,7 +963,8 @@ a:hover.tooltip::after {
 }
 
 .discord-alert-modal {
-  background-color: #313338;
+  background-color: #000000;
+  border: 1px solid #1a1a1a;
   width: 320px;
   border-radius: 4px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
@@ -982,7 +983,8 @@ a:hover.tooltip::after {
 }
 
 .discord-alert-footer {
-  background-color: #2b2d31;
+  background-color: #000000;
+  border-top: 1px solid #1a1a1a;
   padding: 16px;
   display: flex;
   justify-content: center;
@@ -1090,4 +1092,46 @@ a:hover.tooltip::after {
 .tooltip:hover::after,
 .tooltip:hover::before {
   display: none !important;
+}
+
+/* ===============================
+   SITE FOOTER
+   =============================== */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  border-top: 1px solid #1a1a1a;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998;
+  /* Below tooltip (99999) and alert (20000) but above content */
+}
+
+.footer-content {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 12px;
+  color: #b9bbbe;
+  font-weight: 500;
+}
+
+.footer-link {
+  color: #b9bbbe;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.separator {
+  color: #4f545c;
+  font-size: 10px;
 }
