@@ -49,17 +49,17 @@
 					</div>
 					<div class="badges box-color" id="badges">
 						<div class="badges-right">
-							<a class="tooltip" aria-label="Subscriber since Dec 13,2025">
+							<a class="tooltip" data-header="Subscriber" data-name="Since Dec 13, 2025">
 								<img alt=" " src="public/bronze.png" /></a>
-							<a class="tooltip" aria-label="HypeSquad Brilliance">
+							<a class="tooltip" data-header="HypeSquad" data-name="Brilliance">
 								<img alt=" " src="./public/badges/hypesquad-brilliance.svg" /></a>
 
-							<a class="tooltip" aria-label="Server boosting since Dec 13 2025">
+							<a class="tooltip" data-header="Server Booster" data-name="Since Dec 13, 2025">
 								<img alt=" " src="./public/badges/boost-1-month.svg" /></a>
 
-							<a class="tooltip" aria-label="Completed a Quest">
+							<a class="tooltip" data-header="Quest" data-name="Completed">
 								<img alt=" " src="public/badges/quest completion badge.png" /></a>
-							<a class="tooltip" aria-label="ORBS APPRENTICE">
+							<a class="tooltip" data-header="Orbs" data-name="Apprentice">
 								<img alt=" " src="public/OrbsApprentice.png" /></a>
 						</div>
 						<div class="badges-left"></div>
@@ -212,6 +212,13 @@
 			<div class="discord-alert-footer">
 				<button onclick="closeDiscordAlert()">Okay</button>
 			</div>
+		</div>
+	</div>
+	<div id="custom-tooltip" class="custom-tooltip">
+		<img id="tooltip-icon" src="" />
+		<div class="tooltip-info">
+			<span id="tooltip-header"></span>
+			<span id="tooltip-name"></span>
 		</div>
 	</div>
 	<script async src="./scripts/script.js"></script>
