@@ -292,4 +292,52 @@ document.getElementById("discord-alert").addEventListener("click", (e) => {
 	}
 });
 
+/* ===============================
+   CUSTOM RICH TOOLTIP LOGIC
+   =============================== */
+const tooltip = document.getElementById("custom-tooltip");
+const tooltipIcon = document.getElementById("tooltip-icon");
+const tooltipHeader = document.getElementById("tooltip-header");
+const tooltipName = document.getElementById("tooltip-name");
+
+document.querySelectorAll(".tooltip").forEach((el) => {
+	el.addEventListener("mouseenter", () => {
+		const header = el.getAttribute("data-header");
+		const name = el.getAttribute("data-name");
+		// Use the image inside the badge as the icon
+		const img = el.querySelector("img");
+
+		if (header && name && img) {
+			tooltipHeader.innerText = header;
+			tooltipName.innerText = name;
+			tooltipIcon.src = img.src;
+			tooltip.style.display = "flex";
+		}
+	});
+
+	el.addEventListener("mousemove", (e) => {
+		// Position above the cursor
+		const x = e.clientX;
+		const y = e.clientY;
+
+		tooltip.style.left = `${x}px`;
+		tooltip.style.top = `${y - 10}px`; // 10px above cursor
+	});
+
+	el.addEventListener("mouseleave", () => {
+		tooltip.style.display = "none";
+	});
+});
+
+/* ===============================
+   PREVENT RIGHT CLICK ON LOAD
+   =============================== */
+// Ensure context menu logic respects loading state
+// The CSS display:none handles visually, but we want to ensure no interaction during load
+document.addEventListener('contextmenu', event => {
+	if (document.readyState !== 'complete') {
+		event.preventDefault();
+	}
+});
+
 
