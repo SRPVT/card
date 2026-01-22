@@ -77,6 +77,8 @@ function updateStatus(lanyardData) {
 
 	elements.statusImage.src = imagePath;
 	elements.statusBox.setAttribute("aria-label", label);
+	elements.statusBox.setAttribute("data-header", "Status");
+	elements.statusBox.setAttribute("data-name", label);
 
 	// -- CUSTOM STATUS (The text under name) --
 	const custom = activities.find((a) => a.type === 4);
