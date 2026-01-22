@@ -728,7 +728,7 @@ a:hover.tooltip::after {
   border-color: #111111 !important;
 }
 
-/* Text â†’ white */
+/* Text → white */
 * {
   --text-color: #ffffff;
 }
@@ -928,8 +928,14 @@ a:hover.tooltip::after {
 }
 
 .activity-timestamp {
+  color: #57F287 !important;
   color: #b9bbbe;
   font-size: 13px;
   line-height: 1.2;
+}
+
+
+.activity-timestamp i {
+  margin-right: 5px;
 }
 
