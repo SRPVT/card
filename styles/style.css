@@ -708,6 +708,7 @@ a:hover.tooltip::after {
     opacity: 1
   }
 }
+
 /* ===============================
    FORCE PURE BLACK THE RIGHT WAY
    =============================== */
@@ -777,6 +778,7 @@ a:hover.tooltip::after {
   background-color: rgba(0, 0, 0, 0.9) !important;
   filter: blur(8px);
 }
+
 /* ===============================
    WHITE OUTLINE FOR CARD
    =============================== */
@@ -799,133 +801,134 @@ a:hover.tooltip::after {
 .roles-body .rol {
   border-color: #111111 !important;
 }
+
 /* ===============================
    CONTEXT MENU 
    =============================== */
 .context-menu {
   min-width: 220px;
-    position: fixed;
-    z-index: 10000;
-    width: 180px;
-    background: #111214;
-    border-radius: 4px;
-    padding: 6px 0;
-    display: none;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 10000;
+  width: 180px;
+  background: #111214;
+  border-radius: 4px;
+  padding: 6px 0;
+  display: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .context-menu .item {
-    padding: 8px 12px;
-    color: #b9bbbe;
-    font-size: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-    transition: background 0.1s, color 0.1s;
+  padding: 8px 12px;
+  color: #b9bbbe;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: background 0.1s, color 0.1s;
 }
 
 .context-menu .item:hover {
-    background-color: #5865f2;
-    color: #ffffff;
-    border-radius: 2px;
-    margin: 0 4px;
+  background-color: #5865f2;
+  color: #ffffff;
+  border-radius: 2px;
+  margin: 0 4px;
 }
 
 .context-menu .item.sep {
-    height: 1px;
-    background-color: #2f3136;
-    margin: 4px 8px;
-    padding: 0;
-    cursor: default;
+  height: 1px;
+  background-color: #2f3136;
+  margin: 4px 8px;
+  padding: 0;
+  cursor: default;
 }
 
 .context-menu .item.sep:hover {
-    background-color: #2f3136;
+  background-color: #2f3136;
 }
 
 /* ===============================
    RICH PRESENCE ACTIVITY
    =============================== */
 .rich-activity {
-    margin-top: 15px;
-    background-color: #0b0c0e;
-    /* Slightly lighter black/grey */
-    border-radius: 8px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    border: 1px solid #1a1a1a;
-    max-width: 100%;
+  margin-top: 15px;
+  background-color: #0b0c0e;
+  /* Slightly lighter black/grey */
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #1a1a1a;
+  max-width: 100%;
 }
 
 .activity-header {
-    font-size: 0.7em;
-    font-weight: 800;
-    color: #b9bbbe;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+  font-size: 0.7em;
+  font-weight: 800;
+  color: #b9bbbe;
+  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
 .activity-body {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .activity-assets {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
 }
 
 #activity-large-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 #activity-small-image {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -4px;
-    right: -4px;
-    border: 2px solid #000000;
-    background-color: #000000;
-    display: none;
-    /* Hidden by default */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  border: 2px solid #000000;
+  background-color: #000000;
+  display: none;
+  /* Hidden by default */
 }
 
 .activity-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .activity-name {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .activity-detail-text,
 .activity-state {
-    color: #b9bbbe;
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.2;
+  color: #b9bbbe;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .activity-timestamp {
@@ -946,65 +949,72 @@ a:hover.tooltip::after {
    DISCORD CUSTOM ALERT
    =============================== */
 .discord-alert-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 20000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.2s ease-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 20000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-out;
 }
 
 .discord-alert-modal {
-    background-color: #313338;
-    width: 320px;
-    border-radius: 4px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.24);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    animation: scaleIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: #313338;
+  width: 320px;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: scaleIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .discord-alert-content {
-    padding: 20px 16px;
-    color: #dbdee1;
-    font-size: 16px;
-    text-align: center;
-    line-height: 1.4;
+  padding: 20px 16px;
+  color: #dbdee1;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .discord-alert-footer {
-    background-color: #2b2d31;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
+  background-color: #2b2d31;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 .discord-alert-footer button {
-    background-color: #5865F2;
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: 100%;
+  background-color: #5865F2;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
 }
 
 .discord-alert-footer button:hover {
-    background-color: #4752C4;
+  background-color: #4752C4;
 }
 
 @keyframes scaleIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 
@@ -1012,69 +1022,72 @@ a:hover.tooltip::after {
    CUSTOM RICH TOOLTIP
    =============================== */
 .custom-tooltip {
-    position: fixed;
-    z-index: 99999;
-    background-color: #111214;
-    border-radius: 8px;
-    padding: 12px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    pointer-events: none;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    min-width: 140px;
-    transform: translate(-50%, -100%);
-    margin-top: -15px; /* Shift up slightly so it's above cursor */
+  position: fixed;
+  z-index: 99999;
+  background-color: #111214;
+  border-radius: 8px;
+  padding: 12px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  min-width: 140px;
+  transform: translate(-50%, -100%);
+  margin-top: -15px;
+  /* Shift up slightly so it's above cursor */
 }
 
 /* Triangle pointer at the bottom */
 .custom-tooltip::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px 6px 0;
-    border-style: solid;
-    border-color: #111214 transparent transparent transparent;
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #111214 transparent transparent transparent;
 }
 
 .custom-tooltip img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 4px;
-    opacity: 1 !important;
-    animation: none !important;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 4px;
+  opacity: 1 !important;
+  animation: none !important;
 }
 
 .tooltip-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #tooltip-header {
-    color: #b9bbbe;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 2px;
+  color: #b9bbbe;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2px;
 }
 
 #tooltip-name {
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 800;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 /* Remove old tooltip styles */
-.tooltip::after, .tooltip::before {
-    display: none !important;
-}
-.tooltip:hover::after, .tooltip:hover::before {
-    display: none !important;
+.tooltip::after,
+.tooltip::before {
+  display: none !important;
 }
 
+.tooltip:hover::after,
+.tooltip:hover::before {
+  display: none !important;
+}
