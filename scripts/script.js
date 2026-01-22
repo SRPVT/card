@@ -242,6 +242,13 @@ const contextMenu = document.getElementById("context-menu");
 const scope = document.querySelector("body");
 
 scope.addEventListener("contextmenu", (e) => {
+	// Double check loader state
+	const loader = document.getElementById("loader");
+	if (document.readyState !== 'complete' || (loader && !loader.classList.contains("fade-out"))) {
+		e.preventDefault();
+		return; // Do not show menu
+	}
+
 	e.preventDefault();
 
 	// Position the menu
@@ -333,10 +340,12 @@ document.querySelectorAll(".tooltip").forEach((el) => {
    PREVENT RIGHT CLICK ON LOAD
    =============================== */
 // Ensure context menu logic respects loading state
-// The CSS display:none handles visually, but we want to ensure no interaction during load
 document.addEventListener('contextmenu', event => {
-	if (document.readyState !== 'complete') {
+	// Check if loader is still active
+	const loader = document.getElementById("loader");
+	if (document.readyState !== 'complete' || (loader && !loader.classList.contains("fade-out"))) {
 		event.preventDefault();
+		event.stopImmediatePropagation(); // Stronger stop
 	}
 });
 
