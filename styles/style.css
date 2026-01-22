@@ -1098,8 +1098,9 @@ a:hover.tooltip::after {
    STATUS TOOLTIP (Simple Style)
    =============================== */
 .status {
-  position: relative;
-  /* Ensure parent is relative for absolute positioning of tooltip */
+  position: absolute;
+  /* MUST be absolute to stick to avatar corner */
+  /* Re-asserting absolute just in case, though it's defined earlier */
 }
 
 /* Tooltip Body */
