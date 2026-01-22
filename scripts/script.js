@@ -16,6 +16,7 @@ const elements = {
 	activityName: document.getElementById("activity-name"),
 	activityDetails: document.getElementById("activity-details"),
 	activityState: document.getElementById("activity-state"),
+	activityTimestamp: document.getElementById("activity-timestamp"),
 };
 
 /* ===============================
@@ -102,10 +103,17 @@ function updateStatus(lanyardData) {
 
 	// -- RICH PRESENCE (Spotify or Game) --
 	// Find generic activity (type 0) or Spotify (id 'spotify:1')
-	const richActivity = activities.find((a) => a.type === 0 || a.id === "spotify:1");
+	// We prioritizing showing the GAME if mostly playing, but if only spotify, show that.
+	// Actually discord shows Game over Spotify usually.
+	const richActivity = activities.find((a) => a.type === 0) || activities.find((a) => a.id === "spotify:1");
 
 	if (richActivity) {
 		elements.richActivity.style.display = "flex";
+
+		// Clear any existing interval to prevent overlapping timers
+		if (window.activityInterval) clearInterval(window.activityInterval);
+		elements.activityTimestamp.innerText = "";
+		elements.activityTimestamp.style.display = "none";
 
 		// Spotify Special Handling
 		if (richActivity.id === "spotify:1") {
@@ -116,8 +124,39 @@ function updateStatus(lanyardData) {
 
 			if (richActivity.assets?.large_image) {
 				elements.activityLargeImage.src = `https://i.scdn.co/image/${richActivity.assets.large_image.replace("spotify:", "")}`;
+			} else {
+				elements.activityLargeImage.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png";
 			}
 			elements.activitySmallImage.style.display = "none"; // Spotify usually doesn't have a small overlay icon here
+
+			// Spotify Timeline (Progress) - Lanyard provides timestamps.start and timestamps.end
+			if (richActivity.timestamps && richActivity.timestamps.end) {
+				const start = richActivity.timestamps.start;
+				const end = richActivity.timestamps.end;
+
+				elements.activityTimestamp.style.display = "block";
+
+				// Update every second
+				window.activityInterval = setInterval(() => {
+					const now = Date.now();
+					const total = end - start;
+					const current = now - start;
+
+					// Simple elapsed time format: 04:20 / 05:00
+					const currStr = formatTime(current);
+					const totalStr = formatTime(total);
+					elements.activityTimestamp.innerText = `${currStr} / ${totalStr}`;
+
+					// If song over, it usually updates via websocket, but we can stop here safely
+					if (current >= total) clearInterval(window.activityInterval);
+				}, 1000);
+				// Run once immediately
+				const now = Date.now();
+				const total = end - start;
+				const current = now - start;
+				elements.activityTimestamp.innerText = `${formatTime(current)} / ${formatTime(total)}`;
+			}
+
 		}
 		// Standard Game/App Handling
 		else {
@@ -127,18 +166,25 @@ function updateStatus(lanyardData) {
 			elements.activityState.innerText = richActivity.state || "";
 
 			// Images
+			let largeImageSet = false;
 			if (richActivity.assets?.large_image) {
 				let largeImageId = richActivity.assets.large_image;
 				if (largeImageId.startsWith("mp:external")) {
 					// Handle external images
 					elements.activityLargeImage.src = largeImageId.replace(/mp:external\/([^\/]*)\/(https?)\/([^\/]*)/, '$2://$3');
+					largeImageSet = true;
 				} else {
 					// Discord App Assets
 					elements.activityLargeImage.src = `https://cdn.discordapp.com/app-assets/${richActivity.application_id}/${largeImageId}.png`;
+					largeImageSet = true;
 				}
-			} else {
-				// Fallback if no large image
-				elements.activityLargeImage.src = `https://dcdn.dstn.to/app-icons/${richActivity.application_id}`;
+			}
+
+			// Fallback if no image set
+			if (!largeImageSet) {
+				// Use the SVG data URI for a "Discord Unknown Game" lookalike (a simple controller or question mark)
+				elements.activityLargeImage.src = "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/unknown.png";
+				// A reliable URL from a popular VSCode extension for Discord
 			}
 
 			if (richActivity.assets?.small_image) {
@@ -147,9 +193,42 @@ function updateStatus(lanyardData) {
 			} else {
 				elements.activitySmallImage.style.display = "none";
 			}
+
+			// Game Timer (Elapsed)
+			if (richActivity.timestamps && richActivity.timestamps.start) {
+				elements.activityTimestamp.style.display = "block";
+				const start = richActivity.timestamps.start;
+
+				window.activityInterval = setInterval(() => {
+					const now = Date.now();
+					const elapsed = now - start;
+					elements.activityTimestamp.innerText = `${formatTime(elapsed)} elapsed`;
+				}, 1000);
+
+				// Immediate initial
+				const now = Date.now();
+				const elapsed = now - start;
+				elements.activityTimestamp.innerText = `${formatTime(elapsed)} elapsed`;
+			}
 		}
 	} else {
 		elements.richActivity.style.display = "none";
+		if (window.activityInterval) clearInterval(window.activityInterval);
+	}
+}
+
+function formatTime(ms) {
+	const seconds = Math.floor((ms / 1000) % 60);
+	const minutes = Math.floor((ms / 1000 / 60) % 60);
+	const hours = Math.floor(ms / 1000 / 60 / 60);
+
+	const s = seconds.toString().padStart(2, "0");
+	const m = minutes.toString().padStart(2, "0");
+
+	if (hours > 0) {
+		return `${hours}:${m}:${s}`;
+	} else {
+		return `${m}:${s}`;
 	}
 }
 
@@ -193,3 +272,5 @@ function copyUserID() {
 		alert("User ID copied to clipboard!");
 	});
 }
+
+
