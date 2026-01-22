@@ -281,7 +281,7 @@ scope.addEventListener("click", (e) => {
    HELPER FUNCTIONS
    =============================== */
 function viewSource() {
-	window.open("https://github.com/SRPVT/card-6", "_blank");
+	window.open("https://dscbmr.is-a.dev/source.html", "_blank");
 }
 
 function copyUserID() {
