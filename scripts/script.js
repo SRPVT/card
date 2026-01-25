@@ -376,25 +376,32 @@ window.addEventListener('load', () => {
    PROFILE EFFECT LOGIC (Intro -> Loop)
    =============================== */
 window.addEventListener('load', () => {
-	const introParams = {
-		duration: 7200, // Duration of intro in ms (Adjust if too short/long)
-	};
+	// Timings
+	const introDuration = 6900; // Adjusted: slightly shorter to catch the end of intro
+	const fadeDuration = 400;   // Fast smooth fade
 
 	const intro = document.getElementById("effect-intro");
 	const loop = document.getElementById("effect-loop");
 
 	if (intro && loop) {
-		// Wait for the loader to finish (3.5s) + a tiny bit, then start the timer?
-		// Or just start timer immediately? 
-		// Usually, APNGs start loading immediately. 
-		// But since we have a loader, the user wont see it.
-		// We should probably restart the GIF/APNG when the loader vanishes? 
-		// Hard to restart APNGs without reloading src.
+		// Initialize state
+		intro.style.opacity = "1";
+		loop.style.opacity = "0";
+		loop.style.display = "block";
 
-		// Simple approach: Just switch after X seconds.
+		// Start the transition sequence
 		setTimeout(() => {
-			intro.style.display = "none";
-			loop.style.display = "block";
-		}, introParams.duration);
+			// Fade OUT Intro
+			intro.style.opacity = "0";
+
+			// Fade IN Loop
+			loop.style.opacity = "1";
+
+			// Cleanup
+			setTimeout(() => {
+				intro.style.display = "none";
+			}, fadeDuration);
+
+		}, introDuration - fadeDuration);
 	}
 });
