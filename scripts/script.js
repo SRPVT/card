@@ -370,3 +370,31 @@ window.addEventListener('load', () => {
 		}
 	}, 3500); // 3.5s delay for the "premium" feel
 });
+
+
+/* ===============================
+   PROFILE EFFECT LOGIC (Intro -> Loop)
+   =============================== */
+window.addEventListener('load', () => {
+	const introParams = {
+		duration: 7200, // Duration of intro in ms (Adjust if too short/long)
+	};
+
+	const intro = document.getElementById("effect-intro");
+	const loop = document.getElementById("effect-loop");
+
+	if (intro && loop) {
+		// Wait for the loader to finish (3.5s) + a tiny bit, then start the timer?
+		// Or just start timer immediately? 
+		// Usually, APNGs start loading immediately. 
+		// But since we have a loader, the user wont see it.
+		// We should probably restart the GIF/APNG when the loader vanishes? 
+		// Hard to restart APNGs without reloading src.
+
+		// Simple approach: Just switch after X seconds.
+		setTimeout(() => {
+			intro.style.display = "none";
+			loop.style.display = "block";
+		}, introParams.duration);
+	}
+});
