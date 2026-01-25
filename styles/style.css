@@ -188,11 +188,7 @@ body {
   align-items: center;
   justify-content: center;
   top: 120px;
-  left: 16px;
-  /* Visual size: 120px image + 8px padding * 2 = 136px */
-  width: 136px !important;
-  height: 136px !important;
-  box-sizing: border-box;
+  left: 16px
 }
 
 .badges,
@@ -204,21 +200,11 @@ body {
 }
 
 .avatar #avatar-image {
-  width: 100%;
-  /* Fill the container */
-  height: 100%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   padding: 8px;
-  /* Padding is now inside the 136px box due to border-box below */
-  background-color: #e8eff6;
-  box-sizing: border-box;
-}
-
-.effect-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: opacity 0.4s ease-in-out;
+  background-color: #e8eff6
 }
 
 /* Helper classes for JS transitions */
@@ -1276,7 +1262,6 @@ a:hover.tooltip::after {
 }
 
 /* ===============================
-/* ===============================
    NEON BORDER ANIMATION
    =============================== */
 
@@ -1286,23 +1271,16 @@ a:hover.tooltip::after {
   border: none !important;
   padding: 2px;
   /* Thickness of the neon line */
-  /* Remove overflow hidden so avatar effect can pop out */
-  overflow: visible !important;
+  border-radius: 12px;
+  /* Slightly smoother radius */
+  overflow: hidden;
+  /* Clips the rotating gradient */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) !important;
   z-index: 1;
 }
 
-/* The overflow-hidden container for the spinning gradient */
-.neon-layer {
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  z-index: -2;
-}
-
-/* Rotating Gradient Layer on the Neon Layer */
-.neon-layer::before {
+/* Rotating Gradient Layer */
+.profile-border::before {
   content: "";
   position: absolute;
   top: -50%;
@@ -1314,11 +1292,11 @@ a:hover.tooltip::after {
       transparent,
       #ffffff);
   animation: rotate-border 4s linear infinite;
+  z-index: -2;
 }
 
 /* Inner Background Mask (Ensures card remains black inside) */
 .profile-border::after {
-  /* This creates the black background BEHIND the profile content but ABOVE the gradient */
   content: "";
   position: absolute;
   inset: 2px;
@@ -1335,24 +1313,5 @@ a:hover.tooltip::after {
 
   100% {
     transform: rotate(360deg);
-  }
-}
-
-/* ===============================
-   FIXED PROFILE EFFECT
-   =============================== */
-/* Logic moved to main .avatar block for better context/stacking */
-
-@keyframes effect-breathe {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    filter: brightness(1);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1.05);
-    filter: brightness(1.2);
   }
 }
