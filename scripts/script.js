@@ -370,38 +370,3 @@ window.addEventListener('load', () => {
 		}
 	}, 3500); // 3.5s delay for the "premium" feel
 });
-
-
-/* ===============================
-   PROFILE EFFECT LOGIC (Intro -> Loop)
-   =============================== */
-window.addEventListener('load', () => {
-	// Timings
-	const introDuration = 6900; // Adjusted: slightly shorter to catch the end of intro
-	const fadeDuration = 400;   // Fast smooth fade
-
-	const intro = document.getElementById("effect-intro");
-	const loop = document.getElementById("effect-loop");
-
-	if (intro && loop) {
-		// Initialize state
-		intro.style.opacity = "1";
-		loop.style.opacity = "0";
-		loop.style.display = "block";
-
-		// Start the transition sequence
-		setTimeout(() => {
-			// Fade OUT Intro
-			intro.style.opacity = "0";
-
-			// Fade IN Loop
-			loop.style.opacity = "1";
-
-			// Cleanup
-			setTimeout(() => {
-				intro.style.display = "none";
-			}, fadeDuration);
-
-		}, introDuration - fadeDuration);
-	}
-});
