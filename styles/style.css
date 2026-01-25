@@ -1257,16 +1257,23 @@ a:hover.tooltip::after {
   border: none !important;
   padding: 2px;
   /* Thickness of the neon line */
-  border-radius: 12px;
-  /* Slightly smoother radius */
-  overflow: hidden;
-  /* Clips the rotating gradient */
+  /* Remove overflow hidden so avatar effect can pop out */
+  overflow: visible !important;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) !important;
   z-index: 1;
 }
 
-/* Rotating Gradient Layer */
-.profile-border::before {
+/* The overflow-hidden container for the spinning gradient */
+.neon-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: -2;
+}
+
+/* Rotating Gradient Layer on the Neon Layer */
+.neon-layer::before {
   content: "";
   position: absolute;
   top: -50%;
@@ -1278,11 +1285,11 @@ a:hover.tooltip::after {
       transparent,
       #ffffff);
   animation: rotate-border 4s linear infinite;
-  z-index: -2;
 }
 
 /* Inner Background Mask (Ensures card remains black inside) */
 .profile-border::after {
+  /* This creates the black background BEHIND the profile content but ABOVE the gradient */
   content: "";
   position: absolute;
   inset: 2px;
@@ -1310,17 +1317,20 @@ a:hover.tooltip::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Perfectly centered */
-  width: 280px;
-  /* Slightly larger for impact */
-  height: 260px;
+  /* perfectly center on the 120x120 avatar */
+
+  /* Adjusted Size: 120px * ~1.4 = 168-170px usually. 
+     The previous 280px potentially too big. 
+     Let's try a standard Discord-like ratio. */
+  width: 170px;
+  height: 170px;
+
   pointer-events: none;
   z-index: 5;
-  /* Adjusted to be clearly above avatar */
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: effect-breathe 4s ease-in-out infinite;
+  /* Removed breathe animation to ensure it doesn't conflict with APNG movement */
 }
 
 @keyframes effect-breathe {
