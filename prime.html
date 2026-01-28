@@ -4,333 +4,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIME | SUPREME ENTITY</title>
+    <title>PRIME | SUPREME EXPERIENCE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@100;300;400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00f2ff;
-            --secondary: #ff0055;
-            --accent: #7000ff;
-            --bg: #000000;
-            --glass: rgba(255, 255, 255, 0.02);
-            --border: rgba(255, 255, 255, 0.08);
-            --neon: 0 0 40px rgba(0, 242, 255, 0.3);
+            --primary: #8a2be2;
+            --accent: #00d2ff;
+            --bg: #030305;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
         }
 
         body {
-            background-color: var(--bg);
-            color: #fff;
+            background: var(--bg);
+            color: var(--text);
             font-family: 'Outfit', sans-serif;
             overflow-x: hidden;
-            background-image:
-                radial-gradient(circle at 50% 50%, rgba(20, 20, 30, 1) 0%, rgba(0, 0, 0, 1) 100%);
+            background-attachment: fixed;
         }
 
-        /* --- SUPREME CUSTOM CURSOR --- */
-        #cursor {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--primary);
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-            mix-blend-mode: difference;
-        }
-
-        /* --- BACKGROUND HYPER-SPACE --- */
-        #canvas-wrap {
+        /* --- INSANE AMBIENT BACKGROUND --- */
+        .blob-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
+            filter: blur(100px);
             opacity: 0.6;
+            overflow: hidden;
         }
 
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.2;
-            pointer-events: none;
-            z-index: 2;
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -10%;
+            left: -10%;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            bottom: -10%;
+            right: -10%;
+            animation-duration: 25s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: #ff007f;
+            top: 40%;
+            left: 50%;
+            animation-duration: 30s;
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(100px, 100px) scale(1.2);
+            }
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 5rem;
+            padding: 0 2rem;
         }
 
-        /* --- SUPREME NAVIGATION --- */
+        /* --- NAV --- */
         nav {
-            height: 120px;
+            height: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            z-index: 100;
+            z-index: 10;
         }
 
-        .brand {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 15px;
-            background: linear-gradient(to right, #fff, var(--primary));
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
         }
 
-        .brand::after {
-            content: 'SUPREME';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            font-size: 0.6rem;
-            letter-spacing: 5px;
-            color: var(--secondary);
-        }
-
-        .status-module {
+        .status {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            background: var(--glass);
             padding: 10px 20px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ffa3;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00ffa3;
+        }
+
+        .status-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+            background: linear-gradient(to bottom, #fff 40%, rgba(255, 255, 255, 0.4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .cta {
+            padding: 1.2rem 3rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+        }
+
+        .cta:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            padding: 6rem 0 10rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
             background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 2px;
+            padding: 3rem;
+            border-radius: 40px;
+            backdrop-filter: blur(30px);
+            transition: 0.4s;
             position: relative;
             overflow: hidden;
         }
 
-        .status-module::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--primary);
+        .card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
         }
 
-        .dot {
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--primary);
-            animation: pulse 1.5s infinite;
-        }
-
-        .status-module span {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        /* --- HERO: TITANIC --- */
-        .hero {
-            padding: 12rem 0 10rem;
-            text-align: left;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(4rem, 12vw, 10rem);
-            line-height: 0.85;
+        .card h3 {
+            font-size: 1.8rem;
             font-weight: 700;
-            letter-spacing: -5px;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        .glitch-text {
-            color: var(--primary);
-            text-shadow: 4px 4px var(--secondary);
-            font-style: italic;
-        }
-
-        .hero p {
-            max-width: 550px;
-            font-size: 1.2rem;
-            font-weight: 300;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 3rem;
-            border-left: 1px solid var(--primary);
-            padding-left: 2rem;
-        }
-
-        .btn-supreme {
-            display: inline-block;
-            padding: 25px 60px;
-            border: 1px solid #fff;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            position: relative;
-            transition: 0.4s cubic-bezier(0.8, 0, 0.2, 1);
-        }
-
-        .btn-supreme:hover {
-            background: #fff;
-            color: #000;
-            transform: translateX(10px);
-            padding-right: 80px;
-        }
-
-        /* --- BEYOND FEATURES --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: var(--border);
-            border: 1px solid var(--border);
-            margin-bottom: 10rem;
-        }
-
-        .feature-box {
-            background: var(--bg);
-            padding: 60px 40px;
-            position: relative;
-            transition: 0.5s;
-        }
-
-        .feature-box:hover {
-            background: #050505;
-        }
-
-        .feature-box:hover h3 {
-            color: var(--primary);
-            transform: translateX(10px);
-        }
-
-        .feature-box h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.1rem;
             margin-bottom: 1rem;
-            letter-spacing: 3px;
-            transition: 0.5s;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            letter-spacing: -0.5px;
         }
 
-        .feature-box h3::before {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: currentColor;
+        .card p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
         }
 
-        .feature-box p {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.3);
+        .card-blur {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            filter: blur(80px);
+            opacity: 0;
+            transition: 0.4s;
         }
 
-        /* --- ULTIMATE FOOTER --- */
+        .card:hover .card-blur {
+            opacity: 0.3;
+            top: -20%;
+            left: -20%;
+        }
+
+        /* --- FOOTER --- */
         footer {
-            padding: 100px 0;
+            padding: 6rem 0;
             border-top: 1px solid var(--border);
-            text-align: center;
-            position: relative;
-        }
-
-        .footer-main {
             display: flex;
             flex-direction: column;
-            gap: 20px;
             align-items: center;
+            gap: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
         }
 
-        .footer-line {
-            width: 100px;
-            height: 1px;
-            background: var(--secondary);
-            margin-bottom: 20px;
+        .footer-credits {
+            text-align: center;
         }
 
-        .bot-creator {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 12px;
+        .footer-credits p {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            font-weight: 700;
             color: #fff;
-            text-transform: uppercase;
         }
 
-        .rights-protected {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            color: var(--primary);
-            text-transform: uppercase;
-            opacity: 0.7;
+        .protected {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
         }
 
-        .footer-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20vw;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.02);
-            pointer-events: none;
-            z-index: -1;
-            white-space: nowrap;
-        }
-
-        @keyframes pulse {
-            0% {
-                opacity: 0.4;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.4;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            .features-grid {
-                grid-template-columns: 1fr;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 4rem;
             }
 
             .container {
-                padding: 0 2rem;
+                padding: 0 1.5rem;
             }
 
-            nav {
-                height: 100px;
+            .features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -338,127 +290,86 @@
 
 <body>
 
-    <div id="cursor"></div>
-    <div class="noise"></div>
-    <div id="canvas-wrap">
-        <canvas id="supreme-bg"></canvas>
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
     <div class="container">
         <nav>
-            <div class="brand">PRIME</div>
-            <div class="status-module">
-                <div class="dot"></div>
-                <span>CORE_STABLE // LIVE</span>
+            <div class="logo">PRIME EXPERIENCE</div>
+            <div class="status">
+                <div class="status-dot"></div>
+                <div class="status-text">Active Now</div>
             </div>
         </nav>
 
         <section class="hero">
-            <h1>SUPREME<br><span class="glitch-text">EVOLUTION</span></h1>
-            <p>Beyond human interaction. A high-intelligence digital entity engineered for the modern editing vanguard.
-                Absolute efficiency. Absolute power.</p>
-            <a href="#" class="btn-supreme">Integrate Now</a>
+            <h1>UNREAL<br>CAPABILITIES</h1>
+            <p>Step into the next generation of social synchronization. Prime isn't just a bot—it's a high-performance
+                ecosystem designed for the world's most creative communities.</p>
+            <a href="#" class="cta">Add to Discord</a>
         </section>
 
-        <div class="features-grid">
-            <div class="feature-box">
-                <h3>NEURAL_MAP</h3>
-                <p>Sophisticated intent recognition that bypasses the obvious. Prime understands the request before the
-                    user completes the input.</p>
+        <section class="features">
+            <div class="card">
+                <div class="card-blur"></div>
+                <h3>Intelligent Flow</h3>
+                <p>A context-driven engine that understands your creative intent. Stop wasting time on repetitive
+                    prompts and focus on the output.</p>
             </div>
-            <div class="feature-box">
-                <h3>VIBE_FLOW</h3>
-                <p>Automated chat revival cycles programmed with supreme conversational hooks. No silence. No mid
-                    conversation.</p>
+            <div class="card">
+                <div class="card-blur" style="background: var(--accent);"></div>
+                <h3>Vivid Revival</h3>
+                <p>Automated conversational hooks that keep your community active 24/7. High-impact engagement cycles
+                    that never feel forced.</p>
             </div>
-            <div class="feature-box">
-                <h3>SENTINEL</h3>
-                <p>Prime Shield deployment. Zero-tolerance for breach protocols, raid vectors, and destructive spam
-                    variants.</p>
+            <div class="card">
+                <div class="card-blur" style="background: #ff007f;"></div>
+                <h3>Ironclad Core</h3>
+                <p>Premium defense protocols. Captcha-powered security and advanced moderation layers that protect your
+                    server's integrity.</p>
             </div>
-            <div class="feature-box">
-                <h3>FORGE</h3>
-                <p>High-end asset delivery and aesthetic refinement. Precision tools for cinematic creators and
+            <div class="card">
+                <div class="card-blur"></div>
+                <h3>Creative Forge</h3>
+                <p>AI-tailored asset generation and workflow optimization built specifically for editors, designers, and
                     visionaries.</p>
             </div>
-            <div class="feature-box">
-                <h3>SYNDICATE</h3>
-                <p>The next iteration of community hierarchy. Leveling systems that transform active participation into
-                    digital status.</p>
+            <div class="card">
+                <div class="card-num">// 05</div>
+                <h3>Global Syndicate</h3>
+                <p>Exotic leveling systems and dynamic role hierarchies that reward your most elite community members.
+                </p>
             </div>
-            <div class="feature-box">
-                <h3>ARCHIVE</h3>
-                <p>Strategic logging modules for absolute transparency. Every digital fingerprint recorded for server
-                    security.</p>
+            <div class="card">
+                <div class="card-blur" style="background: var(--accent);"></div>
+                <h3>Deep Archive</h3>
+                <p>Real-time transparency. Centralized activity logging to ensure every interaction across your network
+                    is accounted for.</p>
             </div>
-        </div>
-
-        <footer>
-            <div class="footer-bg-text">PRIME_2026</div>
-            <div class="footer-main">
-                <div class="footer-line"></div>
-                <div class="bot-creator">Bot created by BMR</div>
-                <div class="rights-protected">Rights protected by RAYXSTYDIOZ</div>
-            </div>
-        </footer>
+        </section>
     </div>
 
+    <footer>
+        <div class="footer-credits">
+            <p>BOT CREATED BY <span class="highlight">BMR</span></p>
+            <p class="protected">RIGHTS PROTECTED BY <span class="highlight" style="font-weight: 500;">RAXSTDIOZ</span>
+            </p>
+        </div>
+        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.1); letter-spacing: 5px;">EST. 2026</div>
+    </footer>
+
     <script>
-        // --- CUSTOM CURSOR ---
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 15 + 'px';
-            cursor.style.top = e.clientY - 15 + 'px';
-        });
-
-        // --- SUPREME ANIMATED BACKGROUND ---
-        const canvas = document.getElementById('supreme-bg');
-        const ctx = canvas.getContext('2d');
-        let width, height, stars;
-
-        function init() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-            stars = [];
-            for (let i = 0; i < 200; i++) {
-                stars.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    size: Math.random() * 1.5,
-                    speed: Math.random() * 0.5 + 0.1
-                });
-            }
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = '#ffffff10';
-            stars.forEach(s => {
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-                ctx.fill();
-                s.y -= s.speed;
-                if (s.y < 0) s.y = height;
+        // Smooth scroll reveal or parallax could go here
+        window.addEventListener('scroll', () => {
+            const blobs = document.querySelectorAll('.blob');
+            const scroll = window.pageYOffset;
+            blobs.forEach((blob, i) => {
+                blob.style.transform = `translate(${scroll * (i + 1) * 0.05}px, ${scroll * 0.05}px)`;
             });
-            requestAnimationFrame(draw);
-        }
-
-        window.addEventListener('resize', init);
-        init();
-        draw();
-
-        // --- GLITCH SYMBOL SIMULATION ---
-        setInterval(() => {
-            const h1 = document.querySelector('.glitch-text');
-            const original = "EVOLUTION";
-            const chars = "X/#$%^&*@";
-            if (Math.random() > 0.9) {
-                h1.innerText = original.split('').map(c => Math.random() > 0.8 ? chars[Math.floor(Math.random() * chars.length)] : c).join('');
-                setTimeout(() => h1.innerText = original, 100);
-            }
-        }, 200);
+        });
     </script>
 </body>
 
