@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIME | SUPREME EXPERIENCE</title>
+    <title>PRIME | SUPREME ENTITY</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Outfit:wght@100;300;600;900&family=Space+Grotesk:wght@300;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --primary: #8a2be2;
-            --accent: #00d2ff;
-            --bg: #030305;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-            --text: #ffffff;
+            --p: #00ffaa;
+            --s: #bc00ff;
+            --t: #ff0055;
+            --bg: #000;
         }
 
         * {
@@ -24,264 +24,355 @@
             box-sizing: border-box;
         }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            background-attachment: fixed;
+        ::-webkit-scrollbar {
+            width: 0;
         }
 
-        /* --- INSANE AMBIENT BACKGROUND --- */
-        .blob-container {
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        /* --- STUNNING BACKGROUND EFFECTS --- */
+        .aura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .aura {
+            position: absolute;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, var(--s) 0%, transparent 70%);
+            top: -20%;
+            right: -20%;
+            opacity: 0.3;
+            filter: blur(120px);
+            animation: drift 15s infinite alternate;
+        }
+
+        .aura-2 {
+            background: radial-gradient(circle, var(--p) 0%, transparent 70%);
+            bottom: -20%;
+            left: -20%;
+            animation-delay: -5s;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translate(-50px, -50px) scale(1);
+            }
+
+            to {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+        }
+
+        .grid {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
             z-index: -1;
-            filter: blur(100px);
-            opacity: 0.6;
-            overflow: hidden;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
         }
 
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            animation: move 20s infinite alternate;
-        }
-
-        .blob-1 {
-            width: 600px;
-            height: 600px;
-            background: var(--primary);
-            top: -10%;
-            left: -10%;
-        }
-
-        .blob-2 {
-            width: 500px;
-            height: 500px;
-            background: var(--accent);
-            bottom: -10%;
-            right: -10%;
-            animation-duration: 25s;
-        }
-
-        .blob-3 {
-            width: 400px;
-            height: 400px;
-            background: #ff007f;
-            top: 40%;
-            left: 50%;
-            animation-duration: 30s;
-        }
-
-        @keyframes move {
-            from {
-                transform: translate(0, 0) scale(1);
-            }
-
-            to {
-                transform: translate(100px, 100px) scale(1.2);
-            }
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* --- NAV --- */
+        /* --- DYNAMIC NAVIGATION --- */
         nav {
-            height: 100px;
+            padding: 2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 10;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.5rem;
             letter-spacing: -1px;
-            background: linear-gradient(to right, #fff, #888);
+            background: linear-gradient(90deg, #fff, var(--p));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .status {
+        .status-pill {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: var(--glass);
-            padding: 10px 20px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
             border-radius: 100px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(20px);
         }
 
-        .status-dot {
+        .dot {
             width: 8px;
             height: 8px;
-            background: #00ffa3;
+            background: var(--p);
             border-radius: 50%;
-            box-shadow: 0 0 15px #00ffa3;
+            box-shadow: 0 0 15px var(--p);
+            animation: pulse 2s infinite;
         }
 
-        .status-text {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        .status-pill span {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* --- HERO --- */
+        /* --- TITAN HERO SECTION --- */
         .hero {
-            padding: 10rem 0 6rem;
-            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 25vw;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: -1;
+            white-space: nowrap;
+            left: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .hero-pre {
+            font-weight: 600;
+            letter-spacing: 10px;
+            color: var(--p);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
         .hero h1 {
-            font-size: clamp(3.5rem, 10vw, 7.5rem);
-            font-weight: 900;
-            line-height: 0.9;
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(4rem, 12vw, 12rem);
+            line-height: 0.85;
+            letter-spacing: -6px;
             margin-bottom: 2rem;
-            letter-spacing: -3px;
-            background: linear-gradient(to bottom, #fff 40%, rgba(255, 255, 255, 0.4));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
         }
 
         .hero p {
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.6);
-            max-width: 700px;
-            margin: 0 auto 3rem;
+            max-width: 500px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.5);
             line-height: 1.6;
+            margin-bottom: 3rem;
         }
 
-        .cta {
-            padding: 1.2rem 3rem;
-            background: #fff;
-            color: #000;
+        .btn-wrap {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 1.5rem 3rem;
+            border-radius: 0;
+            font-weight: 900;
             text-decoration: none;
-            border-radius: 100px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
-        }
-
-        .cta:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
-        }
-
-        /* --- FEATURES --- */
-        .features {
-            padding: 6rem 0 10rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 3rem;
-            border-radius: 40px;
-            backdrop-filter: blur(30px);
+            text-transform: uppercase;
+            letter-spacing: 3px;
             transition: 0.4s;
             position: relative;
-            overflow: hidden;
         }
 
-        .card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.2);
+        .btn-p {
+            background: var(--p);
+            color: #000;
+        }
+
+        .btn-p:hover {
+            box-shadow: 0 0 30px var(--p);
+            transform: translateY(-5px);
+        }
+
+        /* --- RICH FEATURES SECTION --- */
+        .features {
+            padding: 10rem 5%;
+        }
+
+        .section-header {
+            margin-bottom: 6rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 4rem;
+            letter-spacing: -2px;
+        }
+
+        .f-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .f-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .f-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--p);
             transform: translateY(-10px);
         }
 
-        .card h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
+        .f-card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .card p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.5);
-            line-height: 1.6;
+        .f-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.8;
         }
 
-        .card-blur {
+        .f-card .f-deco {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200px;
-            height: 200px;
-            background: var(--primary);
-            filter: blur(80px);
-            opacity: 0;
-            transition: 0.4s;
+            bottom: -20px;
+            right: -20px;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 10rem;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
         }
 
-        .card:hover .card-blur {
-            opacity: 0.3;
-            top: -20%;
-            left: -20%;
-        }
-
-        /* --- FOOTER --- */
+        /* --- THE RICH FOOTER --- */
         footer {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px);
+            padding: 10rem 5% 5rem;
+            background: linear-gradient(to bottom, transparent, rgba(81, 255, 0, 0.05));
         }
 
-        .footer-credits {
-            text-align: center;
+        .f-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
         }
 
-        .footer-credits p {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
+        .f-brand h4 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .highlight {
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .protected {
+        .f-brand p {
             color: rgba(255, 255, 255, 0.3);
-            font-size: 0.8rem;
+            max-width: 300px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        .f-col h5 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            color: var(--p);
+            font-size: 0.7rem;
+        }
+
+        .f-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .f-col a:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .bottom-bar {
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .credits-rich {
+            text-align: left;
+        }
+
+        .credits-rich h6 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            margin-bottom: 5px;
+        }
+
+        .credits-rich p {
+            font-size: 0.6rem;
+            color: var(--p);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
             .hero h1 {
-                font-size: 4rem;
+                font-size: 5rem;
             }
 
-            .container {
-                padding: 0 1.5rem;
+            .f-grid {
+                grid-template-columns: 1fr;
             }
 
-            .features {
+            .f-main {
                 grid-template-columns: 1fr;
             }
         }
@@ -290,85 +381,115 @@
 
 <body>
 
-    <div class="blob-container">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+    <div class="aura-container">
+        <div class="aura"></div>
+        <div class="aura aura-2"></div>
+    </div>
+    <div class="grid"></div>
+
+    <nav>
+        <div class="logo">PRIME_ENTITY</div>
+        <div class="status-pill">
+            <div class="dot"></div>
+            <span>SYST_ONLINE</span>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-bg-text">POWER</div>
+        <div class="hero-pre">HIGH PERFORMANCE SYSTEM // 2026</div>
+        <h1>THE UNTAMED<br><span>INTELLIGENCE.</span></h1>
+        <p>A sophisticated neural network designed to dominate the professional creative landscape. Speed, accuracy, and
+            absolute server supremacy.</p>
+        <div class="btn-wrap">
+            <a href="#" class="btn btn-p">Deploy Prime</a>
+            <a href="#features" class="btn" style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Features</a>
+        </div>
     </div>
 
-    <div class="container">
-        <nav>
-            <div class="logo">PRIME EXPERIENCE</div>
-            <div class="status">
-                <div class="status-dot"></div>
-                <div class="status-text">Active Now</div>
-            </div>
-        </nav>
+    <section id="features" class="features">
+        <div class="section-header">
+            <p style="color: var(--p); letter-spacing: 5px; margin-bottom: 1rem;">// CAPABILITIES</p>
+            <h2>ENGINEERED FOR<br>THE ELITE.</h2>
+        </div>
 
-        <section class="hero">
-            <h1>UNREAL<br>CAPABILITIES</h1>
-            <p>Step into the next generation of social synchronization. Prime isn't just a bot—it's a high-performance
-                ecosystem designed for the world's most creative communities.</p>
-            <a href="#" class="cta">Add to Discord</a>
-        </section>
-
-        <section class="features">
-            <div class="card">
-                <div class="card-blur"></div>
-                <h3>Intelligent Flow</h3>
-                <p>A context-driven engine that understands your creative intent. Stop wasting time on repetitive
-                    prompts and focus on the output.</p>
+        <div class="f-grid">
+            <div class="f-card">
+                <div class="f-deco">01</div>
+                <h3>Neural Flow</h3>
+                <p>Advanced context recognition algorithms that predict user intent before the final input. Optimized
+                    for high-speed creative environments.</p>
             </div>
-            <div class="card">
-                <div class="card-blur" style="background: var(--accent);"></div>
-                <h3>Vivid Revival</h3>
-                <p>Automated conversational hooks that keep your community active 24/7. High-impact engagement cycles
-                    that never feel forced.</p>
+            <div class="f-card">
+                <div class="f-deco">02</div>
+                <h3>Vibe Protocol</h3>
+                <p>Automated interaction cycles that keep community engagement at peak levels. 6-hour surgical strikes
+                    of conversational intelligence.</p>
             </div>
-            <div class="card">
-                <div class="card-blur" style="background: #ff007f;"></div>
-                <h3>Ironclad Core</h3>
-                <p>Premium defense protocols. Captcha-powered security and advanced moderation layers that protect your
-                    server's integrity.</p>
+            <div class="f-card">
+                <div class="f-deco">03</div>
+                <h3>Sentinel Core</h3>
+                <p>Zero-tolerance verification and security layers. Protecting your server from invasion vectors with
+                    industrial-grade Captcha armor.</p>
             </div>
-            <div class="card">
-                <div class="card-blur"></div>
-                <h3>Creative Forge</h3>
-                <p>AI-tailored asset generation and workflow optimization built specifically for editors, designers, and
-                    visionaries.</p>
+            <div class="f-card">
+                <div class="f-deco">04</div>
+                <h3>Creator Forge</h3>
+                <p>High-end asset generation and workflow optimization. Tailored specifically for cinematic editors and
+                    digital visionaries.</p>
             </div>
-            <div class="card">
-                <div class="card-num">// 05</div>
-                <h3>Global Syndicate</h3>
-                <p>Exotic leveling systems and dynamic role hierarchies that reward your most elite community members.
-                </p>
+            <div class="f-card">
+                <div class="f-deco">05</div>
+                <h3>Evolution</h3>
+                <p>Complex leveling architecture that transforms active participation into status. Dominate the
+                    leaderboard and unlock server prestige.</p>
             </div>
-            <div class="card">
-                <div class="card-blur" style="background: var(--accent);"></div>
-                <h3>Deep Archive</h3>
-                <p>Real-time transparency. Centralized activity logging to ensure every interaction across your network
-                    is accounted for.</p>
+            <div class="f-card">
+                <div class="f-deco">06</div>
+                <h3>Archive</h3>
+                <p>Deep activity indexing for total transparency. Every interaction across your network is logged,
+                    analyzed, and secured.</p>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-credits">
-            <p>BOT CREATED BY <span class="highlight">BMR</span></p>
-            <p class="protected">RIGHTS PROTECTED BY <span class="highlight" style="font-weight: 500;">RAXSTDIOZ</span>
-            </p>
+        <div class="f-main">
+            <div class="f-brand">
+                <h4>PRIME</h4>
+                <p>The definitive digital asset for high-vibe communities and professional creators.</p>
+            </div>
+            <div class="f-col">
+                <h5>Navigation</h5>
+                <a href="#">Home</a>
+                <a href="#">Add Bot</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="f-col">
+                <h5>Social</h5>
+                <a href="#">Discord</a>
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+            </div>
         </div>
-        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.1); letter-spacing: 5px;">EST. 2026</div>
+        <div class="bottom-bar">
+            <div class="credits-rich">
+                <h6>CREATED BY BMR</h6>
+                <p>PROTECTED BY RAXSTDIOZ</p>
+            </div>
+            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.2); letter-spacing: 5px;">EST. // 2026</div>
+        </div>
     </footer>
 
     <script>
-        // Smooth scroll reveal or parallax could go here
+        // Smooth parallax on scroll
         window.addEventListener('scroll', () => {
-            const blobs = document.querySelectorAll('.blob');
             const scroll = window.pageYOffset;
-            blobs.forEach((blob, i) => {
-                blob.style.transform = `translate(${scroll * (i + 1) * 0.05}px, ${scroll * 0.05}px)`;
-            });
+            document.querySelector('.hero-bg-text').style.transform = `translate(${scroll * 0.2}px, -50%)`;
+
+            const auras = document.querySelectorAll('.aura');
+            auras[0].style.transform = `translate(${scroll * 0.1}px, ${scroll * 0.05}px)`;
+            auras[1].style.transform = `translate(${-scroll * 0.1}px, ${-scroll * 0.05}px)`;
         });
     </script>
 </body>
