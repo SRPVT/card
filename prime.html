@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME | DIGITAL ENTITY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --secondary: #7000ff;
+            --bg: #030303;
+            --card-bg: rgba(10, 10, 15, 0.7);
+            --border: rgba(0, 242, 255, 0.15);
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --neon-glow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            letter-spacing: -0.02em;
+        }
+
+        /* --- INSANE BACKGROUND --- */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- HEADER --- */
+        header {
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .brand {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #fff;
+            text-shadow: var(--neon-glow);
+        }
+
+        .status-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+            position: relative;
+        }
+
+        .status-indicator::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            animation: ripple 2s infinite;
+        }
+
+        .status-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 10rem 0 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border: 1px solid var(--secondary);
+            padding: 4px 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #fff;
+            mix-blend-mode: exclusion;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* --- INTERACTIVE BUTTON --- */
+        .btn-orbit {
+            position: relative;
+            padding: 20px 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border: 1px solid var(--primary);
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .btn-orbit:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: var(--neon-glow);
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            padding: 10rem 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            position: relative;
+            transition: 0.4s;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-glitch {
+            color: #fff;
+            animation: glitch 3s linear infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            2% {
+                transform: translate(-2px, 2px);
+            }
+
+            4% {
+                transform: translate(-2px, -2px);
+            }
+
+            6% {
+                transform: translate(2px, 2px);
+            }
+
+            8% {
+                transform: translate(2px, -2px);
+            }
+
+            10% {
+                transform: translate(0);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="vignette"></div>
+    <div class="scanlines"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="container">
+        <header>
+            <div class="brand">PRIME</div>
+            <div class="status-container">
+                <div class="status-indicator"></div>
+                <div class="status-text">Live: Operational</div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <span class="hero-tag">Digital Asset // V2.4.0</span>
+            <h1>LIMITLESS<br>INTELLIGENCE</h1>
+            <p>A sophisticated neural architecture designed specifically for the professional editing ecosystem.
+                Experience high-octane performance and seamless AI integration.</p>
+            <a href="#" class="btn-orbit">Initiate Link</a>
+        </section>
+
+        <section class="features">
+            <div class="card">
+                <div class="card-num">// 01</div>
+                <h3>Neural Context</h3>
+                <p>Advanced recognition algorithms that skip redundant inquiries. Direct technical assistance for the
+                    most aggressive workflows.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">// 02</div>
+                <h3>Vibe Protocol</h3>
+                <p>Sophisticated 6-hour cycle automated interaction. Maintaining server heat with high-intellect
+                    conversational anchors.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">// 03</div>
+                <h3>Prime Shield</h3>
+                <p>Zero-tolerance verification and security layers. Protecting digital assets from invasive
+                    script-attacks and spam-vectors.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">// 04</div>
+                <h3>Creative Forge</h3>
+                <p>AI-driven asset generation, aesthetic mapping, and script-editing tailored for cinematic excellence.
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-num">// 05</div>
+                <h3>Core Metrics</h3>
+                <p>Centralized activity logging for total server transparency. Precision-tracking of every user
+                    interaction.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">// 06</div>
+                <h3>Evolution</h3>
+                <p>Next-gen leveling architecture designed for community growth. Transform communication into status.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <div>[ Authorization: Verified ]</div>
+            <div class="footer-glitch">Developed by BMR // PRIME 2026</div>
+            <div>[ System Status: Optimal ]</div>
+        </footer>
+    </div>
+
+    <script>
+        // --- INSANE BACKGROUND PARTICLES ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = (Math.random() - 0.5) * 1.5;
+                this.speedY = (Math.random() - 0.5) * 1.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 242, 255, 0.4)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+
+                // Draw lines between nearby particles
+                for (let j = index; j < particles.length; j++) {
+                    const dx = p.x - particles[j].x;
+                    const dy = p.y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(0, 242, 255, ${0.1 - distance / 1500})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // --- HOVER GLITCH EFFECT ON H1 ---
+        const h1 = document.querySelector('h1');
+        h1.addEventListener('mouseover', () => {
+            h1.style.textShadow = `3px 0 0 rgba(255,0,0,0.5), -3px 0 0 rgba(0,255,255,0.5)`;
+        });
+        h1.addEventListener('mouseout', () => {
+            h1.style.textShadow = 'none';
+        });
+    </script>
+</body>
+
+</html>
